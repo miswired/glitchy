@@ -5,10 +5,10 @@
 	(uuid "42d571b6-4323-4c1e-96fd-32370f158def")
 	(paper "A2")
 	(title_block
-		(title "Project Circuit Breaker")
+		(title "Glitchy")
 		(date "2024-07-25")
 		(rev "1.1")
-		(company "True Spark Innovations")
+		(company "miswired")
 	)
 	(lib_symbols
 		(symbol "Amplifier_Operational:LM358"
@@ -23330,7 +23330,7 @@
 			(uuid "04af41e8-65a0-4f9c-93f7-cca83f10b7f5")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR028")
 					(unit 1)
@@ -23414,7 +23414,7 @@
 			(uuid "a13ea8f9-6ae9-4824-b288-686382e4e810")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R16")
 					(unit 1)
@@ -23509,7 +23509,7 @@
 			(uuid "2b591e45-300f-4b45-af16-6cf9fa5763a2")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C5")
 					(unit 1)
@@ -23576,7 +23576,7 @@
 			(uuid "1268cf60-e551-4a1d-804e-7dcb4f93e4e0")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR04")
 					(unit 1)
@@ -23662,7 +23662,7 @@
 			(uuid "fb5b9a80-554d-496c-a49a-6a16656b2ef3")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C13")
 					(unit 1)
@@ -23729,7 +23729,7 @@
 			(uuid "ae7cdc81-6800-490b-88c9-c5f7d8a60770")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP5")
 					(unit 1)
@@ -23820,7 +23820,7 @@
 			(uuid "3b7100d3-d75a-4484-ad72-75c6b1f4e33f")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R22")
 					(unit 1)
@@ -23886,7 +23886,7 @@
 			(uuid "3249a67b-fd47-4894-95fc-fa6eaebbd706")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR016")
 					(unit 1)
@@ -23953,7 +23953,7 @@
 			(uuid "d1dc81b2-ad89-45c7-8338-b87032b87cbc")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR011")
 					(unit 1)
@@ -24019,7 +24019,7 @@
 			(uuid "9d035690-65f4-4e92-86a5-83a18ab5c86f")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR023")
 					(unit 1)
@@ -24273,7 +24273,7 @@
 			(uuid "2a859fe4-3d29-4585-9ccd-caa86e5571ab")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "U4")
 					(unit 1)
@@ -24431,7 +24431,7 @@
 			(uuid "df8a1517-df3e-473e-b0bf-a403020c9222")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "U2")
 					(unit 1)
@@ -24515,7 +24515,7 @@
 			(uuid "346aa5a7-078f-4d32-982e-4814f30685da")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R24")
 					(unit 1)
@@ -24603,7 +24603,7 @@
 			(uuid "2fe8a598-a1db-4cd1-a6b4-6a12c047c3c2")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R5")
 					(unit 1)
@@ -24708,7 +24708,7 @@
 			(uuid "ba482bac-0937-4ec7-ae43-b0aa7182dbbc")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "U3")
 					(unit 2)
@@ -24775,7 +24775,7 @@
 			(uuid "433f3216-2874-43e0-947f-4d58ac3d1996")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP9")
 					(unit 1)
@@ -24841,7 +24841,7 @@
 			(uuid "fe088aaa-81e2-462d-8f9d-1772a67d63ac")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR037")
 					(unit 1)
@@ -24907,7 +24907,7 @@
 			(uuid "3bc4ac78-bf57-45c5-9c2e-fcda1fb35e5d")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR014")
 					(unit 1)
@@ -24991,7 +24991,7 @@
 			(uuid "35469401-ac02-4e51-8d74-cc943cde0320")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R6")
 					(unit 1)
@@ -25075,7 +25075,7 @@
 			(uuid "969392fc-4a2c-491e-b452-f901de1d895d")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R14")
 					(unit 1)
@@ -25161,7 +25161,7 @@
 			(uuid "46251808-264c-47ef-bf77-d172cacee8c3")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C4")
 					(unit 1)
@@ -25256,7 +25256,7 @@
 			(uuid "9047321e-a49d-4982-ae85-8a72b4fd5760")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C3")
 					(unit 1)
@@ -25322,7 +25322,7 @@
 			(uuid "e6429757-6315-40ed-aee6-4c06ce0c2c99")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR010")
 					(unit 1)
@@ -25417,7 +25417,7 @@
 			(uuid "7eeeb69f-46ff-46be-a6cb-64249acc3c4c")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C12")
 					(unit 1)
@@ -25484,7 +25484,7 @@
 			(uuid "e0da690b-8c95-4467-8ea6-5af9f5c389b7")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP8")
 					(unit 1)
@@ -25553,7 +25553,7 @@
 			(uuid "f31424d2-1019-4fe4-8a00-2752631731b7")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "J1")
 					(unit 1)
@@ -25637,7 +25637,7 @@
 			(uuid "c212c85a-ff1b-441b-b0d2-de173b4c3903")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R13")
 					(unit 1)
@@ -25703,7 +25703,7 @@
 			(uuid "d25336a5-7b5d-4240-b85d-96463465e202")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR02")
 					(unit 1)
@@ -25769,7 +25769,7 @@
 			(uuid "cc725428-937c-442b-84d1-3fc73780a541")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR034")
 					(unit 1)
@@ -25836,7 +25836,7 @@
 			(uuid "c954936d-3e5c-483e-b35c-cb900e9ed14d")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP6")
 					(unit 1)
@@ -25902,7 +25902,7 @@
 			(uuid "f70039a2-db1e-429f-b407-b1f8d2abee24")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR018")
 					(unit 1)
@@ -25968,7 +25968,7 @@
 			(uuid "3e99f65a-e16c-46e5-a752-ee42ba1b1c5f")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR027")
 					(unit 1)
@@ -26035,7 +26035,7 @@
 			(uuid "85b0c671-3973-40cd-9ba7-e55675e0efee")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP11")
 					(unit 1)
@@ -26119,7 +26119,7 @@
 			(uuid "c2476e93-0160-4ba7-8d02-fcafe29942fd")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R23")
 					(unit 1)
@@ -26203,7 +26203,7 @@
 			(uuid "fcf0f5b7-a0fd-442a-afa7-c49a6763eb8a")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R25")
 					(unit 1)
@@ -26270,7 +26270,7 @@
 			(uuid "7ff9dea1-e330-4f91-a4a1-44563952f407")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP12")
 					(unit 1)
@@ -26356,7 +26356,7 @@
 			(uuid "3885f4ae-f4d3-44fc-9cde-dfd5acf6afa5")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C6")
 					(unit 1)
@@ -26440,7 +26440,7 @@
 			(uuid "a3fd438b-428a-46fa-812f-744b40770fc4")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R15")
 					(unit 1)
@@ -26524,7 +26524,7 @@
 			(uuid "f3f7e08a-0aef-4d84-8f8f-7bd403db9110")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R1")
 					(unit 1)
@@ -26608,7 +26608,7 @@
 			(uuid "6442430b-3f1d-4ba2-a2a4-014469619027")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R28")
 					(unit 1)
@@ -26674,7 +26674,7 @@
 			(uuid "b53e0c9a-55df-4cd9-a6f6-ee4de400b0c7")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR030")
 					(unit 1)
@@ -26758,7 +26758,7 @@
 			(uuid "529c99b1-44a8-401d-ad6a-879394b91fcb")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R12")
 					(unit 1)
@@ -26845,7 +26845,7 @@
 			(uuid "4ae8dc00-3028-458e-abaa-ad303ee44393")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "LED1")
 					(unit 1)
@@ -26913,7 +26913,7 @@
 			(uuid "fc566768-2baf-4289-b2df-ce8c4ffb61ba")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP4")
 					(unit 1)
@@ -27025,7 +27025,7 @@
 			(uuid "86953a16-55e1-40db-a4f7-84d9cb28b565")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "H1")
 					(unit 1)
@@ -27110,7 +27110,7 @@
 			(uuid "e6ba6d87-f962-4a87-9ad8-74a2b8482d1b")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "D2")
 					(unit 1)
@@ -27194,7 +27194,7 @@
 			(uuid "9d9f89f3-90a0-44e8-8cf6-f21361595bfa")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R19")
 					(unit 1)
@@ -27289,7 +27289,7 @@
 			(uuid "be91ee33-6a71-4f60-8e0f-6d4ce402d6e8")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C9")
 					(unit 1)
@@ -27374,7 +27374,7 @@
 			(uuid "207e90fb-4923-4125-a533-ff5b4bddc5b0")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "P1")
 					(unit 1)
@@ -27458,7 +27458,7 @@
 			(uuid "046484bc-a2e1-4971-a65a-d44f60f3051a")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R10")
 					(unit 1)
@@ -27524,7 +27524,7 @@
 			(uuid "bc7b5a60-6cd3-4fe3-8c7e-7593ac578acb")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR043")
 					(unit 1)
@@ -27590,7 +27590,7 @@
 			(uuid "a7400765-1c38-4c0f-81e7-7f2c144bcffd")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR017")
 					(unit 1)
@@ -27674,7 +27674,7 @@
 			(uuid "b7a1379f-0e50-422f-bd2b-0121b2cf1f4e")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R4")
 					(unit 1)
@@ -27760,7 +27760,7 @@
 			(uuid "d99957b8-4315-4ba7-a612-e30187d4fd0a")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C17")
 					(unit 1)
@@ -27855,7 +27855,7 @@
 			(uuid "f4631c84-5861-4a9e-a810-d8fefda94f8c")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C7")
 					(unit 1)
@@ -27939,7 +27939,7 @@
 			(uuid "66094181-ab00-4b38-8bba-ec6ae4b6d83e")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R27")
 					(unit 1)
@@ -28023,7 +28023,7 @@
 			(uuid "86367c12-34d2-4de0-8500-3a93af083ffe")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R11")
 					(unit 1)
@@ -28088,7 +28088,7 @@
 			(uuid "519da0b9-c30f-4250-8f54-559dbec217b0")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR040")
 					(unit 1)
@@ -28175,7 +28175,7 @@
 			(uuid "4f32f864-1a76-4779-a1c6-c9d07683c482")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R3")
 					(unit 1)
@@ -28287,7 +28287,7 @@
 			(uuid "6068f14f-744f-4f7f-a247-45ed5d69e9db")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "SDCard1")
 					(unit 1)
@@ -28376,7 +28376,7 @@
 			(uuid "324f78a2-8e16-4cc2-8470-33a74816e83f")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "D5")
 					(unit 1)
@@ -28442,7 +28442,7 @@
 			(uuid "02d845fa-bca2-4061-8092-048c0363203e")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR031")
 					(unit 1)
@@ -28509,7 +28509,7 @@
 			(uuid "fb0f5cdf-f60b-406f-918c-6c839650eaa3")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR024")
 					(unit 1)
@@ -28604,7 +28604,7 @@
 			(uuid "c4e35747-d4bf-4d86-a9b7-d792c318f49a")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C2")
 					(unit 1)
@@ -28671,7 +28671,7 @@
 			(uuid "40ff6ac5-16b1-4e4c-9de4-6ec72cb27f67")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR032")
 					(unit 1)
@@ -28771,7 +28771,7 @@
 			(uuid "0d99dfa3-5092-4d16-8b7d-5fe54a2d703f")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "USB1")
 					(unit 1)
@@ -28837,7 +28837,7 @@
 			(uuid "99889da2-a53d-4c48-a5d8-66529a8b4c4e")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR015")
 					(unit 1)
@@ -28932,7 +28932,7 @@
 			(uuid "977be186-b750-4df7-9db3-b3f8480427d3")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C15")
 					(unit 1)
@@ -28998,7 +28998,7 @@
 			(uuid "5adcf207-7c3b-4d36-9cd3-e97fb31e1da5")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR035")
 					(unit 1)
@@ -29065,7 +29065,7 @@
 			(uuid "f2025251-f657-44fd-94db-6ea1733d6b49")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP10")
 					(unit 1)
@@ -29156,7 +29156,7 @@
 			(uuid "b7a24064-b2cb-448a-a075-39834b18f6db")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "SW2")
 					(unit 1)
@@ -29251,7 +29251,7 @@
 			(uuid "258a5fad-19b1-405c-a0e4-b793f5f09318")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C1")
 					(unit 1)
@@ -29317,7 +29317,7 @@
 			(uuid "63e4594f-6bad-4e20-8996-88ea1d41b451")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR039")
 					(unit 1)
@@ -29423,7 +29423,7 @@
 			(uuid "ba482bac-0937-4ec7-ae43-b0aa7182dbbd")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "U3")
 					(unit 3)
@@ -29489,7 +29489,7 @@
 			(uuid "72f76a89-b8b1-48e0-948c-0fdf0fa5d85c")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR041")
 					(unit 1)
@@ -29574,7 +29574,7 @@
 			(uuid "df5d6f09-f099-49f7-95ae-68a474b05df3")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R21")
 					(unit 1)
@@ -29640,7 +29640,7 @@
 			(uuid "0dcd6f9c-3388-4162-8bdd-ce70297e9882")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR019")
 					(unit 1)
@@ -29726,7 +29726,7 @@
 			(uuid "a3fc1f2c-aeb6-4ffa-9d9f-39d3429f2915")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C14")
 					(unit 1)
@@ -29793,7 +29793,7 @@
 			(uuid "26d49575-e88f-4621-a10c-d578a798d916")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP1")
 					(unit 1)
@@ -29859,7 +29859,7 @@
 			(uuid "8d066587-99c9-4be1-b9a3-1d804d47ace6")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR022")
 					(unit 1)
@@ -29925,7 +29925,7 @@
 			(uuid "0e9375b6-b2dc-4f04-92ba-a105940c23dd")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR06")
 					(unit 1)
@@ -30020,7 +30020,7 @@
 			(uuid "5452e729-1eb4-4bb4-a9a2-6f2a6b682b83")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C11")
 					(unit 1)
@@ -30111,7 +30111,7 @@
 			(uuid "2bffd4a1-8578-4996-967c-f9dbc5d1177e")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "U1")
 					(unit 1)
@@ -30178,7 +30178,7 @@
 			(uuid "bbf2a0a7-c24f-416c-a8c8-68555cc38623")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR013")
 					(unit 1)
@@ -30244,7 +30244,7 @@
 			(uuid "f89d307d-8c26-481a-b355-56e6aa6fd534")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR029")
 					(unit 1)
@@ -30310,7 +30310,7 @@
 			(uuid "4a558a6f-dc93-4ef8-ac9a-7327abe82fc5")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR020")
 					(unit 1)
@@ -30376,7 +30376,7 @@
 			(uuid "2b68e4af-428c-49c2-aad1-dd753ef84719")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR08")
 					(unit 1)
@@ -30460,7 +30460,7 @@
 			(uuid "42ea4c41-0a65-43fb-988b-d96e589e1fbe")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R18")
 					(unit 1)
@@ -30545,7 +30545,7 @@
 			(uuid "03741273-b4c1-4b77-bb07-d014d1a9bc5c")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "D1")
 					(unit 1)
@@ -30612,7 +30612,7 @@
 			(uuid "c08df6d8-ca1b-4ed5-affb-e373340968fe")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR05")
 					(unit 1)
@@ -30678,7 +30678,7 @@
 			(uuid "97aa94ba-3909-4d72-8e34-aecbff3d582b")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR038")
 					(unit 1)
@@ -30744,7 +30744,7 @@
 			(uuid "ccbd13a7-c267-45ed-a4c7-0785d5c5b41a")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR01")
 					(unit 1)
@@ -30828,7 +30828,7 @@
 			(uuid "d64f4fdb-1e1d-4d2d-85e5-d6acb97ad462")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R2")
 					(unit 1)
@@ -30914,7 +30914,7 @@
 			(uuid "2d297590-7371-4acc-af09-643dff2a2de3")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "P2")
 					(unit 1)
@@ -30980,7 +30980,7 @@
 			(uuid "bbab0377-1f9e-447e-a923-cb5ca7db9467")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR026")
 					(unit 1)
@@ -31048,7 +31048,7 @@
 			(uuid "4e77dffb-4cbc-420b-a712-19c4a0172ff1")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP3")
 					(unit 1)
@@ -31134,7 +31134,7 @@
 			(uuid "6d90bb24-50ad-4edd-ba27-2479e45f663c")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C8")
 					(unit 1)
@@ -31200,7 +31200,7 @@
 			(uuid "a317bb4b-6cbe-4af6-9c19-b50d1ab44c64")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR03")
 					(unit 1)
@@ -31291,7 +31291,7 @@
 			(uuid "4eea5ebb-ee29-4d2b-a8af-42fb7f041d61")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "Q2")
 					(unit 1)
@@ -31375,7 +31375,7 @@
 			(uuid "d3a6099c-7d1a-4f97-965d-26d2abca145e")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R17")
 					(unit 1)
@@ -31461,7 +31461,7 @@
 			(uuid "b1e86f1a-7d6e-4b7b-98a0-d723f81b0b21")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C10")
 					(unit 1)
@@ -31545,7 +31545,7 @@
 			(uuid "141a66cc-612e-4184-8de7-11fd429c7b5e")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R7")
 					(unit 1)
@@ -31629,7 +31629,7 @@
 			(uuid "e172cc68-9d94-4e54-961a-e7d1d636674a")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R26")
 					(unit 1)
@@ -31696,7 +31696,7 @@
 			(uuid "63831444-8d0f-48cc-acaa-5b614cd18609")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR033")
 					(unit 1)
@@ -31780,7 +31780,7 @@
 			(uuid "9b500138-5d88-483b-943a-933ed54ef5ae")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "Q3")
 					(unit 1)
@@ -31847,7 +31847,7 @@
 			(uuid "b2716b2e-775b-4c92-8290-32726ed95d4d")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR09")
 					(unit 1)
@@ -31931,7 +31931,7 @@
 			(uuid "78015b7b-37c9-42b9-96fb-5b693bc89526")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R9")
 					(unit 1)
@@ -31997,7 +31997,7 @@
 			(uuid "0cf66d1d-8f80-4bb4-8b0d-cdd0611d156f")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR07")
 					(unit 1)
@@ -32064,7 +32064,7 @@
 			(uuid "0b7d08b4-a138-4172-aedb-84e0e9ca7899")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR025")
 					(unit 1)
@@ -32169,7 +32169,7 @@
 			(uuid "ba482bac-0937-4ec7-ae43-b0aa7182dbbe")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "U3")
 					(unit 1)
@@ -32236,7 +32236,7 @@
 			(uuid "bee73b7a-1ddb-41d9-97d5-33d2e79627a9")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP7")
 					(unit 1)
@@ -32327,7 +32327,7 @@
 			(uuid "3a15cbb0-d6f1-4547-ae23-f8f93f4f8bb6")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "D3")
 					(unit 1)
@@ -32393,7 +32393,7 @@
 			(uuid "c5c30e87-25e1-4417-89b3-354a2e3761f0")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR012")
 					(unit 1)
@@ -32485,7 +32485,7 @@
 			(uuid "387ff2e6-bf2f-42d2-b15a-1d928b939f6c")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "SW3")
 					(unit 1)
@@ -32575,7 +32575,7 @@
 			(uuid "6fe5f184-e1e7-46e0-b203-f88ab507a2c6")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "Q1")
 					(unit 1)
@@ -32694,7 +32694,7 @@
 			(uuid "e9717e20-213a-4e99-99dc-1936564ec5f7")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "SW1")
 					(unit 1)
@@ -32760,7 +32760,7 @@
 			(uuid "51127a28-7870-4354-b958-74073c8670b5")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR021")
 					(unit 1)
@@ -32844,7 +32844,7 @@
 			(uuid "d6ad5d79-e276-4bf0-910f-cc9fe359c6f1")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R8")
 					(unit 1)
@@ -32911,7 +32911,7 @@
 			(uuid "439d1921-c673-44b9-9fed-1a51ed7cf19b")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP14")
 					(unit 1)
@@ -32995,7 +32995,7 @@
 			(uuid "259058ea-7aaa-4e4f-b3c5-11dbd6a6420f")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R20")
 					(unit 1)
@@ -33062,7 +33062,7 @@
 			(uuid "bfbcdc10-61cc-496d-acb9-7ffac719513d")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP13")
 					(unit 1)
@@ -33157,7 +33157,7 @@
 			(uuid "f9f60494-9e70-4b2f-bea7-80ee90758aaf")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "C16")
 					(unit 1)
@@ -33222,7 +33222,7 @@
 			(uuid "75b4e103-2300-45c6-a0fc-d314ce17fbfb")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR042")
 					(unit 1)
@@ -33312,7 +33312,7 @@
 			(uuid "52a96fa2-fd0a-422a-a5c5-aa3a757cb52c")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "R29")
 					(unit 1)
@@ -33383,7 +33383,7 @@
 			(uuid "91a7c1d0-6885-4929-9e92-598b34150c78")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "JP1")
 					(unit 1)
@@ -33449,7 +33449,7 @@
 			(uuid "9e790aad-3530-4d0b-b39c-1e152bc7e87e")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "#PWR036")
 					(unit 1)
@@ -33516,7 +33516,7 @@
 			(uuid "9bd800e8-a230-40e0-9d97-3ff6cedee9a6")
 		)
 		(instances
-			(project "CircuitBreakerREV1_1"
+			(project "Miswired-Glitchy"
 				(path "/42d571b6-4323-4c1e-96fd-32370f158def"
 					(reference "TP2")
 					(unit 1)
