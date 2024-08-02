@@ -18,7 +18,7 @@ Attribution: Miswired
 #define KEY_1_PIN           6
 #define KEY_2_PIN           5
 #define KEY_3_PIN           4
-#define KEY_4_PIN           3
+
 #define LOCKED_LED_PIN      12 
 #define UNLOCKED_LED_PIN    11
 #define STATUS_LED_PIN      13     
@@ -40,7 +40,7 @@ void setup() {
   pinMode(KEY_1_PIN, INPUT_PULLUP);
   pinMode(KEY_2_PIN, INPUT_PULLUP);
   pinMode(KEY_3_PIN, INPUT_PULLUP);
-  pinMode(KEY_4_PIN, INPUT_PULLUP);
+
 
   // Show locked
   digitalWrite(LOCKED_LED_PIN, HIGH);
@@ -79,11 +79,6 @@ void loop() {
     //digitalWrite(STATUS_LED_PIN, LOW);
   }
 
-    if(!digitalRead(KEY_4_PIN))
-  {
-    g_was_the_right_key_pressed = false;
-    Serial.println("Key 4 Pressed\n");
-  }
 
   
 

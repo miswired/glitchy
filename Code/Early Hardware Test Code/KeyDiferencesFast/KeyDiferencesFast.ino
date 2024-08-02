@@ -17,8 +17,8 @@ uint16_t adc_buffer3[adc_buffer_len];
 #define KEY_3_PIN 7
 
 //Note, the fast ADC library uses pins and channles, define both
-#define ADC_PIN   10
-#define ADC_CHAN  9
+#define ADC_PIN   4
+#define ADC_CHAN  3
 
 void setup() {
   // initialize serial communication at 115200 bits per second:
