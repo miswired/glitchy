@@ -31,6 +31,7 @@ Please visit https://randomnerdtutorials.com/
 #include "wifi_credentials.h"
 //#include <Arduino_JSON.h>
 #include <ArduinoJson.h>
+#include "CircularBuffer.hpp"
 
 
 //NOTE: Put your wifi info in wifi_credentials.h
@@ -62,9 +63,13 @@ char ssid_char[30];
 #define CAL_ARRAY_LENGTH 100
 unsigned int cal_array[CAL_ARRAY_LENGTH];
 
-unsigned int g_chart_update_rate_ms = 500;
+unsigned int g_chart_update_rate_ms = 100;
 unsigned int g_timer_send_chart_data_ms = 0;
 unsigned long g_last_milis_reading = 0;
+
+#define BUFFER_SIZE   100
+CircularBuffer<unsigned int, BUFFER_SIZE> adc_amp_in_buffer;
+CircularBuffer<unsigned int, BUFFER_SIZE> adc_bias_buffer;
 
 bool g_inturupt_called = false;
 
@@ -207,7 +212,7 @@ void loop() {
   if(g_timer_send_chart_data_ms == 0)
   {
     g_timer_send_chart_data_ms = g_chart_update_rate_ms;
-    Serial.println("Sending ADC");
+    //Serial.println("Sending ADC");
     read_and_send_ADC();
   }
 }
