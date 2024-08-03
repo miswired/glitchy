@@ -62,6 +62,14 @@ char ssid_char[30];
 #define CAL_ARRAY_LENGTH 100
 unsigned int cal_array[CAL_ARRAY_LENGTH];
 
+unsigned int g_chart_update_rate_ms = 500;
+unsigned int g_timer_send_chart_data_ms = 0;
+unsigned long g_last_milis_reading = 0;
+
+bool g_inturupt_called = false;
+
+hw_timer_t *Timer0_Cfg = NULL;
+
 // Initialize SD Card
 void initSDCard(){
   uint64_t card_size = 0;
@@ -120,6 +128,13 @@ void initWiFi() {
   Serial.println(WiFi.localIP());
 }
 
+// Inturrupt vector for timer 0
+void IRAM_ATTR Timer0_ISR()
+{
+    process_timers();
+}
+
+
 //Start system initiation
 void setup(){
   // Serial port for debugging purposes
@@ -158,8 +173,24 @@ void setup(){
   server.serveStatic("/", SD, "/");
   // Start server
   server.begin();
+
+
+  //Inturrupt setup for 1 ms timers
+  Timer0_Cfg = timerBegin(0, 240, true);
+  
+  timerWrite(Timer0_Cfg, 0);
+  timerAlarmWrite(Timer0_Cfg, 500, true);
+  timerAttachInterrupt(Timer0_Cfg, &Timer0_ISR, true);
+  timerAlarmEnable(Timer0_Cfg);
+
+  
 }
 
+void process_timers()
+{
+  if(g_timer_send_chart_data_ms > 0){g_timer_send_chart_data_ms--;}
+  
+}
 
 // Main loop
 void loop() {
@@ -171,5 +202,12 @@ void loop() {
     //execute_fast_test_glitch();
     g_trigger_state = false;
     notifyClients();
+  }
+
+  if(g_timer_send_chart_data_ms == 0)
+  {
+    g_timer_send_chart_data_ms = g_chart_update_rate_ms;
+    Serial.println("Sending ADC");
+    read_and_send_ADC();
   }
 }

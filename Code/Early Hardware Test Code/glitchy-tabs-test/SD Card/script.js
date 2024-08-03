@@ -1,12 +1,15 @@
 const chart_obj = document.getElementById('myChart');
 
 var xValues = [];
-
-for(let i = 0; i < 100; i++) {
-	xValues[i]=i;
-}
-
 var yValues = [];
+
+/*
+for(let i = 0; i < 100; i++) {
+	xValues[i] = i;
+	yValues[i] = i;
+}
+*/
+
 
 const myChart = new Chart(chart_obj, {
 	type: 'line',
@@ -79,6 +82,14 @@ var gateway = `ws://${window.location.hostname}/ws`;
 	  var myObj = JSON.parse(event.data);
 	  console.log(myObj);
 	  myChart.data.datasets[0].data = myObj.chartarray;
+	  
+	  let xAxis = [];
+	  for(let i = 0; i < myObj.chartarray.length; i++) {
+			xAxis[i] = i;
+	  }
+	  
+	  myChart.data.labels = xAxis;
+	  
 	  myChart.update();
 	  /*
 	  for (i in myObj.gpios){
@@ -98,6 +109,27 @@ var gateway = `ws://${window.location.hostname}/ws`;
 	  */
 	  //console.log(event.data);
 	}
+  
+  function testupdate(){
+	
+
+	xValues = [];
+	yValues = [];
+	
+	for(let i = 0; i < 50; i++) {
+	xValues[i] = i;
+	yValues[i] = -i;
+	}
+
+	myChart.data.datasets[0].data = yValues;
+	myChart.data.labels = xValues;
+	  
+	myChart.update();  
+	
+	console.log("Values updated");
+	  
+  }
+  
   
   function selectTab(tabIndex) {
          //Hide All Tabs
