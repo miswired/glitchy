@@ -1,9 +1,6 @@
 #include "analog.h"
 
 
-//#define history_length 50
-//int history[history_length];
-//int history_counter = 0;
 unsigned long time1 = 0;
 unsigned long time2 = 0;
 

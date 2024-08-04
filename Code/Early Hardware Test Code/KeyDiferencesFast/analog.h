@@ -6,6 +6,7 @@ extern "C" {
 
 /* Credit: https://github.com/stg/ESP32-S3-FastAnalogRead/tree/master
  * Author: stg
+ * Modified: miswired
  * 
  * Driver to read ADC1 really fast and/or do asynchronous (non-blocking) conversions.
  * Caution: Functions are not reentrant - be careful with threads and interrupts.

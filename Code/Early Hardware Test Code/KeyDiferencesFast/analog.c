@@ -1,6 +1,6 @@
 /* Credit: https://github.com/stg/ESP32-S3-FastAnalogRead/tree/master
  * Author: stg
- * 
+ * Modified: miswired
  */
 
 #include "analog.h"

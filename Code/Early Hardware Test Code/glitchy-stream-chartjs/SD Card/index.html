@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="switches.css">
   <title>Simple ESP Web Server Example</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="data:,">
@@ -37,19 +38,28 @@
 	
    <div id="tab3Content">
 		<div class="content">
+			<label class="switch">
+			  <input type="checkbox" id="stream_amp_bias_charts_toggle" checked>
+			  <span class="slider round"></span>
+			</label>
+			
 			<div class="card">
 				<canvas id="ChartAmpOut_Canvasobj"></canvas>
 			</div>
 			<div class="card">
 				<canvas id="ChartBias_Canvasobj"></canvas>
 			</div>
-			<p><button id="button_adc" class="button">Start ADC Test</button></p>
+			
+			
 		</div>
    </div>
    
    <div id="tab4Content">
 		<div class="content">
-			This is the power analysis tab
+			<div class="card">
+				<canvas id="ChartPowerAnalysis_Canvasobj"></canvas>
+			</div>
+			<p><button id="button_adc" class="button">Start ADC Test</button></p>
 		</div>
    </div>
   
@@ -68,15 +78,9 @@
 	import ChartStreaming from 'chartjs-plugin-streaming';
 
 	Chart.register(ChartStreaming);
-	/*
-	Chart.defaults.set('plugins.streaming', {
-	  duration: 20000
-	});
-	*/
-	
   </script>
   
-  
+  <script src="charts.js"></script>
   <script src="script.js"></script>
 
   
