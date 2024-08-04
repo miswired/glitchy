@@ -16,7 +16,8 @@
    
    <div id="tab1" onClick="JavaScript:selectTab(1);">Home</div>
    <div id="tab2" onClick="JavaScript:selectTab(2);">Glitching</div>
-   <div id="tab3" onClick="JavaScript:selectTab(3);">Power Analysis</div>
+   <div id="tab3" onClick="JavaScript:selectTab(3);">Power Analysis Setup</div>
+   <div id="tab4" onClick="JavaScript:selectTab(4);">Power Analysis</div>
    <br />
    
    <div id="tab1Content">
@@ -37,14 +38,45 @@
    <div id="tab3Content">
 		<div class="content">
 			<div class="card">
-				<canvas id="myChart"></canvas>
+				<canvas id="ChartAmpOut_Canvasobj"></canvas>
+			</div>
+			<div class="card">
+				<canvas id="ChartBias_Canvasobj"></canvas>
 			</div>
 			<p><button id="button_adc" class="button">Start ADC Test</button></p>
 		</div>
    </div>
+   
+   <div id="tab4Content">
+		<div class="content">
+			This is the power analysis tab
+		</div>
+   </div>
+  
+  
   
   
   <script src="chart.js"></script>
+  
+  <script src="luxon@1.27.0.js"></script>
+  <script src="chartjs-adapter-luxon@1.0.0.js"></script>
+  <script src="chartjs-plugin-streaming@2.0.0.js"></script>
+  
+  <script>
+	import {Chart} from 'chart.js';
+	import 'chartjs-adapter-luxon';
+	import ChartStreaming from 'chartjs-plugin-streaming';
+
+	Chart.register(ChartStreaming);
+	/*
+	Chart.defaults.set('plugins.streaming', {
+	  duration: 20000
+	});
+	*/
+	
+  </script>
+  
+  
   <script src="script.js"></script>
 
   

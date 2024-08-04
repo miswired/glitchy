@@ -1,7 +1,11 @@
-const chart_obj = document.getElementById('myChart');
 
-var xValues = [];
-var yValues = [];
+
+
+
+//const chart_obj = document.getElementById('ChartAmpOut');
+
+//var xValues = [];
+//var yValues = [];
 
 /*
 for(let i = 0; i < 100; i++) {
@@ -10,7 +14,59 @@ for(let i = 0; i < 100; i++) {
 }
 */
 
+const config_ampout = {
+  type: 'line',
+  data: {
+    datasets: [
+      {
+		label: 'AMP Output',
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgb(54, 162, 235)',
+        cubicInterpolationMode: 'monotone',
+        fill: true,
+        data: []
+      },
+	  /*
+      {
+		label: 'Dataset 2',
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgb(54, 162, 235)',
+        cubicInterpolationMode: 'monotone',
+        fill: true,
+        data: []
+      }
+	  */
+    ]
+  },
+  options: {
+    scales: {
+      x: {
+        type: 'realtime',
+        realtime: {
+		  delay: 1000,
+        },
+		title: {
+			display: true,
+			text: 'Time'
+		  }
+	  },
+	  y: {
+		  title: {
+			display: true,
+			text: 'Volts'
+		  }
+		}
+    }
+  }
+};
 
+const ChartAmpOut = new Chart(
+  document.getElementById('ChartAmpOut_Canvasobj'),
+  config_ampout
+);
+
+
+/*
 const myChart = new Chart(chart_obj, {
 	type: 'line',
 	data: {
@@ -47,6 +103,7 @@ const myChart = new Chart(chart_obj, {
 	  }
 	}
 });
+*/
 
 var gateway = `ws://${window.location.hostname}/ws`;
   var websocket;
@@ -97,16 +154,44 @@ var gateway = `ws://${window.location.hostname}/ws`;
   function onMessage(event) {
 	  var myObj = JSON.parse(event.data);
 	  console.log(myObj);
-	  myChart.data.datasets[0].data = myObj.chartarray;
 	  
+	  if("CommsVersion" in myObj){
+		console.log("has CommsVersion");
+		if(myObj.CommsVersion == 1.1){
+		  console.log("CommsVersion is 1.1");
+		  if("PacketType" in myObj){
+			console.log("has PacketType");
+			if(myObj.PacketType = "ADCStream"){
+				console.log("PacketType is ADCStream");
+				ChartAmpOut.data.datasets[0].data.push({
+					x: Date.now(),
+					y: myObj.LastAmpInVolts
+				});
+			}
+		  }			  
+		}
+	  }
+	  //myChart.data.datasets[0].data = myObj.chartarray;
+	  
+	  /*
 	  let xAxis = [];
 	  for(let i = 0; i < myObj.chartarray.length; i++) {
 			xAxis[i] = i;
 	  }
+	  */
 	  
-	  myChart.data.labels = xAxis;
+	  /*
+	  myChart.data.datasets.forEach(function(dataset) {
+		dataset.data.push({
+			x: Date.now(),
+			y: myObj.chartarray[myObj.chartarray.length-1]
+		});
+	  });
+	  */
 	  
-	  myChart.update();
+	  //myChart.data.labels = xAxis;
+	  
+	  //myChart.update();
 	  /*
 	  for (i in myObj.gpios){
 		var output = myObj.gpios[i].output;
@@ -126,32 +211,11 @@ var gateway = `ws://${window.location.hostname}/ws`;
 	  //console.log(event.data);
 	}
   
-  testing();
-  setInterval(testupdate, 200);
-  
-  function testing()
-  {
-	for(let i = 0; i < 50; i++) {
-		xValues[i] = i;
-		yValues[i] = Math.random();
-	}
-	
-	//setInterval(testupdate(), 100);
-  }
-  
-  function testupdate(){
-	
-
-	yValues = yValues.concat(yValues.splice(0,2));
-	//xValues = xValues.concat(xValues.splice(0,2));
-
-	myChart.data.datasets[0].data = yValues;
-	myChart.data.labels = xValues;
-	  
-	myChart.update();  
-	
-	console.log("Values updated");
-	  
+  function push(){
+		ChartAmpOut.data.datasets[0].data.push({
+			x: Date.now(),
+			y: 1.1
+		});   
   }
   
   
@@ -160,6 +224,7 @@ var gateway = `ws://${window.location.hostname}/ws`;
          document.getElementById("tab1Content").style.display = "none";
          document.getElementById("tab2Content").style.display = "none";
          document.getElementById("tab3Content").style.display = "none";
+		 document.getElementById("tab4Content").style.display = "none";
          //Show the Selected Tab
          document.getElementById("tab" + tabIndex + "Content").style.display =
          "block";

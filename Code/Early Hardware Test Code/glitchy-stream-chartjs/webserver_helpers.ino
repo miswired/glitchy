@@ -88,11 +88,13 @@ String processor(const String& var){
 void read_and_send_ADC()
 {
   JsonDocument doc;
-  doc["Teststring"] = "string";
-  doc["Testfp"] = 3.14;
-  JsonArray chartarray_jsonarray = doc["chartarray"].to<JsonArray>();
+  doc["CommsVersion"] = 1.1;
+  doc["PacketType"] = "ADCStream";
+  doc["LastAmpInVolts"] = convert_dac_to_volts(analogRead(AMP_IN_PIN));
+  doc["LastBiasVolts"] = convert_dac_to_volts(analogRead(BIAS_IN_PIN));
+  //JsonArray chartarray_jsonarray = doc["chartarray"].to<JsonArray>();
 
-  adc_amp_in_buffer.push(analogRead(AMP_IN_PIN));
+  //adc_amp_in_buffer.push(analogRead(AMP_IN_PIN));
   /*
   //Quick dirty way to fill the array, will be a rolling history eventually
   for(int i=0; i<CAL_ARRAY_LENGTH; i++)
@@ -105,11 +107,12 @@ void read_and_send_ADC()
     chartarray_jsonarray.add(cal_array[i]);
   }
   */
+  /*
   for(int i=0; i<adc_amp_in_buffer.size(); i++)
   {
     chartarray_jsonarray.add(convert_dac_to_volts(adc_amp_in_buffer[i]));
   }
-  
+  */
   doc.shrinkToFit();  // optional
   
   String jsonString;
