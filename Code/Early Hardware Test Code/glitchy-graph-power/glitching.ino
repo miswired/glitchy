@@ -82,10 +82,32 @@ static inline void execute_fast_test_glitch(uint32_t numofnops)
   unsigned int i=0;
 
 
-    REG_SET_BIT(GPIO_OUT_REG,BIT15);
-    __asm__ __volatile__ ("nop");
-    REG_CLR_BIT(GPIO_OUT_REG,BIT15);
 
+    GPIO.out_w1ts = (1 << GPIO_NUM_15);
+
+    for(i=0; i<numofnops; i++)
+      {
+        __asm__ __volatile__ ("nop");
+      }
+      
+    //__asm__ __volatile__("nop;nop;nop;nop;nop;nop;nop;"); // Bug workaround (I found this snippet somewhere in this forum)
+
+    GPIO.out_w1tc = (1 << GPIO_NUM_15);
+    //__asm__ __volatile__("nop;nop;nop;nop;nop;nop;nop;");
+
+    /*  
+    REG_SET_BIT(GPIO_OUT_REG,BIT15);
+    //__asm__ __volatile__ ("nop");
+    //__asm__ __volatile__ ("nop");
+    //__asm__ __volatile__ ("nop");
+    //__asm__ __volatile__ ("nop");
+    for(i=0; i<numofnops; i++)
+      {
+        __asm__ __volatile__ ("nop");
+      }
+      
+    REG_CLR_BIT(GPIO_OUT_REG,BIT15);
+    */
 
 
 

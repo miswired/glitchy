@@ -94,8 +94,9 @@ String processor(const String& var){
       return "OFF";
     }
   }
-  return String();
   */
+  return String();
+  
 }
 
 void udpate_glitch_status_webpage(bool running, unsigned int delay_value, unsigned int try_number, bool success)

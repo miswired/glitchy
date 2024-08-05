@@ -31,7 +31,7 @@ Please visit https://randomnerdtutorials.com/
 #include "wifi_credentials.h"
 //#include <Arduino_JSON.h>
 #include <ArduinoJson.h>
-#include "CircularBuffer.hpp"
+//#include "CircularBuffer.hpp"
 
 
 
@@ -75,8 +75,8 @@ unsigned int g_timer_send_chart_data_ms = 0;
 unsigned long g_last_milis_reading = 0;
 
 #define BUFFER_SIZE   100
-CircularBuffer<unsigned int, BUFFER_SIZE> adc_amp_in_buffer;
-CircularBuffer<unsigned int, BUFFER_SIZE> adc_bias_buffer;
+//CircularBuffer<unsigned int, BUFFER_SIZE> adc_amp_in_buffer;
+//CircularBuffer<unsigned int, BUFFER_SIZE> adc_bias_buffer;
 
 bool g_inturupt_called = false;
 bool g_glitching_acivate = false;
@@ -131,8 +131,8 @@ void initSDCard(){
 // Start the wifi module and connect to the configured AP
 // Make sure to set up credentials in the wifi_credentials.h file
 void initWiFi() {
-  Serial.println("Function Called");
-  WiFi.mode(WIFI_STA);
+  Serial.println("Seting up Wifi");
+  /*
   Serial.println("SSID Begin");
   WiFi.begin(ssid, password);
   Serial.print("Connecting to WiFi ..");
@@ -141,6 +141,24 @@ void initWiFi() {
     delay(1000);
   }
   Serial.println(WiFi.localIP());
+
+  WiFi.softAP(ssid, password);
+  WiFi.mode(WIFI_STA);
+  */
+
+  //ESP32 as AP
+  const char* ap_ssid     = "ESP32-Access-Point";
+  const char* ap_password = "123456789";
+
+  WiFi.softAP(ap_ssid, ap_password);
+
+  IPAddress IP = WiFi.softAPIP();
+  
+  Serial.print("AP IP address: ");
+  Serial.println(IP);
+  
+  server.begin();
+  
 }
 
 // Inturrupt vector for timer 0
@@ -172,7 +190,6 @@ void setup(){
   //Load config file
   //config_test();
 
-  Serial.print("Starting WiFi");
   initWiFi();
   
 
@@ -191,14 +208,14 @@ void setup(){
 
 
   //Inturrupt setup for 1 ms timers
-  /*
+
   Timer0_Cfg = timerBegin(0, 240, true);
   
   timerWrite(Timer0_Cfg, 0);
   timerAlarmWrite(Timer0_Cfg, 500, true);
   timerAttachInterrupt(Timer0_Cfg, &Timer0_ISR, true);
   timerAlarmEnable(Timer0_Cfg);
-  */
+
   
   setup_fast_adc();
 }
@@ -216,9 +233,9 @@ void loop() {
   if(g_glitching_acivate == true){
     g_glitching_acivate = false;
     //execute_test_glitch(1,90,2000,1,3);
-    execute_fast_test_glitch(1);
+    execute_fast_test_glitch(50);
     
-    //execute_fast_test_glitch(2);
+    //execute_fast_test_glitch(5);
     
 
   
