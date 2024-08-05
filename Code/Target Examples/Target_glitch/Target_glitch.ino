@@ -14,7 +14,7 @@ Attribution: Miswired
 
         
 // Defining Pins here
-#define ENTER_KEY_PIN 2   
+#define ENTER_KEY_PIN 11   
 #define LOCKED_LED_PIN 13 
 #define UNLOCKED_LED_PIN 12     
 

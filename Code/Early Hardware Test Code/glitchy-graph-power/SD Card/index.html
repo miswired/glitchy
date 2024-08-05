@@ -1,0 +1,92 @@
+<!DOCTYPE HTML><html>
+<head>
+  <title>Simple ESP Web Server Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="switches.css">
+  <title>Simple ESP Web Server Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:,">
+
+</head>
+<body>
+   <div class="topnav">
+      <h1>Welcome To Glitchy</h1>
+   </div>
+   
+   <div id="tab1" onClick="JavaScript:selectTab(1);">Home</div>
+   <div id="tab2" onClick="JavaScript:selectTab(2);">Glitching</div>
+   <div id="tab3" onClick="JavaScript:selectTab(3);">Power Analysis Setup</div>
+   <div id="tab4" onClick="JavaScript:selectTab(4);">Power Analysis</div>
+   <br />
+   
+   <div id="tab1Content">
+	   This is the home tab
+   </div>
+   <div id="tab2Content">
+	   <div class="content">
+			<div class="card">
+				<h2>Glitching State</h2>
+				<p class="state">state: <span id="glitching_status">%STATE%</span></p>
+				<p><button id="start_glitching_button" class="button">Start Glitching Test</button></p>
+				
+			</div>
+			
+	   </div> 
+	</div>	   
+	
+   <div id="tab3Content">
+		<div class="content">
+			<div>
+					Enable ADC Reading:
+			</div>
+			<label class="switch">
+			  <input type="checkbox" id="stream_amp_bias_charts_toggle" checked>
+			  <span class="slider round"> </span>
+			</label>
+			
+			<div class="card">
+				<canvas id="ChartAmpOut_Canvasobj"></canvas>
+			</div>
+			<div class="card">
+				<canvas id="ChartBias_Canvasobj"></canvas>
+			</div>
+			
+			
+		</div>
+   </div>
+   
+   <div id="tab4Content">
+		<div class="content">
+			<div class="card">
+				<canvas id="ChartPowerAnalysis_Canvasobj"></canvas>
+			</div>
+			<p><button id="button_start_power_analysis" class="button">Start ADC Test</button></p>
+		</div>
+   </div>
+  
+  
+  
+  
+  <script src="chart.js"></script>
+  
+  <script src="luxon@1.27.0.js"></script>
+  <script src="chartjs-adapter-luxon@1.0.0.js"></script>
+  <script src="chartjs-plugin-streaming@2.0.0.js"></script>
+  
+  <script>
+	import {Chart} from 'chart.js';
+	import 'chartjs-adapter-luxon';
+	import ChartStreaming from 'chartjs-plugin-streaming';
+
+	Chart.register(ChartStreaming);
+  </script>
+  
+  <script src="charts.js"></script>
+  <script src="script.js"></script>
+
+  
+  <body onload="javascript:selectTab(1)">
+</body>
+</html>
