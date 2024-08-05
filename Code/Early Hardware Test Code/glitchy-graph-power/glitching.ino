@@ -24,8 +24,8 @@ Special thanks goes to Rui Santos and the RandomNerdTutorials site. The work her
 // The pulse width of the glitch is staticly set right now, this should be dynamic
 
 //Tell the compiler to not optimize so hopefully the timing doesn't get delayed. 
-#pragma GCC push_options
-#pragma GCC optimize("O0")
+//#pragma GCC push_options
+//#pragma GCC optimize("Ofast")
 void execute_test_glitch(uint32_t shortest_delay_nops, uint32_t longest_delay_nops, uint32_t pause_time_between_glitching_ms, uint32_t glitch_time_step_size, uint32_t num_of_attempts_at_each_step)
 {
   int i=0;
@@ -37,6 +37,9 @@ void execute_test_glitch(uint32_t shortest_delay_nops, uint32_t longest_delay_no
     {
       delay(1);
       digitalWrite(ENTER_KEY_PIN,HIGH);
+      
+      execute_fast_test_glitch(glitch_time_nops);
+      /*
       REG_SET_BIT(GPIO_OUT_REG,BIT15);
   
       for(i=0; i<glitch_time_nops; i++)
@@ -46,6 +49,7 @@ void execute_test_glitch(uint32_t shortest_delay_nops, uint32_t longest_delay_no
   
      
       REG_CLR_BIT(GPIO_OUT_REG,BIT15);
+      */
   
       digitalWrite(ENTER_KEY_PIN,LOW);
       delay(1);
@@ -71,27 +75,19 @@ void execute_test_glitch(uint32_t shortest_delay_nops, uint32_t longest_delay_no
   }
 }
 
-
-void execute_fast_test_glitch()
+//IRAM_ATTR
+static inline void execute_fast_test_glitch(uint32_t numofnops)
 {
 
   unsigned int i=0;
-  //timerAlarmDisable(Timer0_Cfg);
-  //digitalWrite(ENTER_KEY_PIN,HIGH);
 
-  REG_SET_BIT(GPIO_OUT_REG,BIT15);
 
-  /*
-  for(i=0; i<1; i++)
-    {
-      asm ( "nop \n" );
-    } 
-  */
-  REG_CLR_BIT(GPIO_OUT_REG,BIT15);
+    REG_SET_BIT(GPIO_OUT_REG,BIT15);
+    __asm__ __volatile__ ("nop");
+    REG_CLR_BIT(GPIO_OUT_REG,BIT15);
 
-  //digitalWrite(ENTER_KEY_PIN,LOW);
-  //delay(1000);
-  //Serial.println("Glitched");
-  //timerAlarmEnable(Timer0_Cfg);
+
+
+
 }
-#pragma GCC pop_options
+//#pragma GCC pop_options

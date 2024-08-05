@@ -191,13 +191,15 @@ void setup(){
 
 
   //Inturrupt setup for 1 ms timers
+  /*
   Timer0_Cfg = timerBegin(0, 240, true);
   
   timerWrite(Timer0_Cfg, 0);
   timerAlarmWrite(Timer0_Cfg, 500, true);
   timerAttachInterrupt(Timer0_Cfg, &Timer0_ISR, true);
   timerAlarmEnable(Timer0_Cfg);
-
+  */
+  
   setup_fast_adc();
 }
 
@@ -214,9 +216,9 @@ void loop() {
   if(g_glitching_acivate == true){
     g_glitching_acivate = false;
     //execute_test_glitch(1,90,2000,1,3);
+    execute_fast_test_glitch(1);
     
-    
-    execute_fast_test_glitch();
+    //execute_fast_test_glitch(2);
     
 
   
