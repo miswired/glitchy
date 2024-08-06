@@ -43,18 +43,44 @@ Please visit https://randomnerdtutorials.com/
 #define ENTER_KEY_PIN       11
 #define GLITCH_SUCCESS_PIN  12
 
-#define SCK_PIN             39
-#define MISO_PIN            47
-#define MOSI_PIN            40
-#define CS_PIN              41
+//#define SCK_PIN             39
+//#define MISO_PIN            47
+//#define MOSI_PIN            40
+//#define CS_PIN              41
 
 #define AMP_IN_PIN          4
 #define BIAS_IN_PIN         2
 
 // Key pins for the power analysis example
-#define KEY_1_PIN           5
-#define KEY_2_PIN           6
-#define KEY_3_PIN           7
+#define KEY_1_PIN           9
+#define KEY_2_PIN           10
+#define KEY_3_PIN           11
+
+
+//Set up both SPI's
+
+#define VSPI_MISO   6
+#define VSPI_MOSI   5
+#define VSPI_SCLK   7
+#define VSPI_SS     8
+
+#define HSPI_MISO   47
+#define HSPI_MOSI   40
+#define HSPI_SCLK   39
+#define HSPI_SS     41
+
+  
+#if CONFIG_IDF_TARGET_ESP32S2 || CONFIG_IDF_TARGET_ESP32S3
+#define VSPI FSPI
+#endif
+
+static const int spiClk = 1000000; // 1 MHz
+
+//uninitalised pointers to SPI objects
+SPIClass * vspi = NULL;
+SPIClass * hspi = NULL;
+
+
 
 
 // Create webserver on port 80 and websocket at /ws
@@ -92,8 +118,8 @@ void initSDCard(){
   uint64_t card_size = 0;
   uint8_t card_type = 0;
 
-  SPI.begin(SCK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
-  if(!SD.begin(CS_PIN)){
+  //SPI.begin(SCK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
+  if(!SD.begin(hspi->pinSS(), *hspi)){
     Serial.println("SD Card Init Error");
     return;
   }
@@ -186,6 +212,22 @@ void setup(){
   pinMode(ENTER_KEY_PIN, OUTPUT);
   digitalWrite(ENTER_KEY_PIN, LOW);
 
+  //Setup SPI ports
+  //initialise two instances of the SPIClass attached to VSPI and HSPI respectively
+  vspi = new SPIClass(VSPI);
+  hspi = new SPIClass(HSPI);
+
+  vspi->begin(VSPI_SCLK, VSPI_MISO, VSPI_MOSI, VSPI_SS); //SCLK, MISO, MOSI, SS
+  hspi->begin(HSPI_SCLK, HSPI_MISO, HSPI_MOSI, HSPI_SS); //SCLK, MISO, MOSI, SS
+
+  pinMode(vspi->pinSS(), OUTPUT); //VSPI SS
+  pinMode(hspi->pinSS(), OUTPUT); //HSPI SS
+  
+  vspi->beginTransaction(SPISettings(80000000, MSBFIRST, SPI_MODE0));
+  // Setting this up now so that the line is drivien low quickly after startup
+  vspi->transfer(0b00000000);
+  vspi->endTransaction();
+
   // Connect to Wi-Fi
   initSDCard();
 
@@ -230,7 +272,6 @@ void process_timers()
 
 // Main loop
 void loop() {
-  
   ws.cleanupClients();
 
   if(g_glitching_acivate == true){
@@ -240,9 +281,33 @@ void loop() {
 
       //execute_fast_test_glitch(i);
 
-    execute_fast_test_glitch(2);
+    //execute_fast_test_glitch(2);
     
 
+    vspi->beginTransaction(SPISettings(80000000, MSBFIRST, SPI_MODE0));
+    vspi->transfer(0b10101010);
+    vspi->endTransaction();
+    
+    vspi->beginTransaction(SPISettings(70000000, MSBFIRST, SPI_MODE0));
+    vspi->transfer(0b10101010);
+    vspi->endTransaction();
+    
+    vspi->beginTransaction(SPISettings(60000000, MSBFIRST, SPI_MODE0));
+    vspi->transfer(0b10101010);
+    vspi->endTransaction();
+    
+    vspi->beginTransaction(SPISettings(50000000, MSBFIRST, SPI_MODE0));
+    vspi->transfer(0b10101010);
+    vspi->endTransaction();
+    
+    vspi->beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
+    vspi->transfer(0b10101010);
+    vspi->endTransaction();
+    
+    vspi->beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
+    vspi->transfer(0b10101010);
+    vspi->endTransaction();
+    
   
     
   }
