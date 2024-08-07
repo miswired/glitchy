@@ -99,13 +99,13 @@ String processor(const String& var){
   
 }
 
-void udpate_glitch_status_webpage(bool running, unsigned int delay_value, unsigned int try_number, bool success)
+void udpate_glitch_status_webpage(bool running, unsigned int delay_value_ns, unsigned int try_number, bool success)
 {
   JsonDocument doc;
   doc["CommsVersion"] = 1.1;
   doc["PacketType"] = "UpdateGlitchStatus";
   doc["running"] = running;
-  doc["delay_value"] = delay_value;
+  doc["delay_value"] = delay_value_ns;
   doc["try_number"] = try_number;
   doc["success"] = success;
   

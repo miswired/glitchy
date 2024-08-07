@@ -52,17 +52,17 @@ Please visit https://randomnerdtutorials.com/
 #define BIAS_IN_PIN         2
 
 // Key pins for the power analysis example
-#define KEY_1_PIN           9
-#define KEY_2_PIN           10
-#define KEY_3_PIN           11
+#define KEY_1_PIN           5
+#define KEY_2_PIN           6
+#define KEY_3_PIN           7
 
 
 //Set up both SPI's
 
-#define VSPI_MISO   6
-#define VSPI_MOSI   5
-#define VSPI_SCLK   7
-#define VSPI_SS     8
+#define VSPI_MISO   13
+#define VSPI_MOSI   POWER_GLITCH_PIN
+#define VSPI_SCLK   14
+#define VSPI_SS     16
 
 #define HSPI_MISO   47
 #define HSPI_MOSI   40
@@ -274,41 +274,64 @@ void process_timers()
 void loop() {
   ws.cleanupClients();
 
+  unsigned long i=0;
+
   if(g_glitching_acivate == true){
     g_glitching_acivate = false;
-    //execute_test_glitch(1,90,2000,1,3);
+
+    execute_spi_driven_glitch(500);
+    
+    execute_test_glitch(200,1500,2000,10,3);
+    //shortest_delay_ns, longest_delay_ns, pause_time_between_glitching_ms, glitch_time_step_size_ns, num_of_attempts_at_each_step
+
     
 
-      //execute_fast_test_glitch(i);
+    //execute_fast_test_glitch(i);
 
     //execute_fast_test_glitch(2);
-    
 
-    vspi->beginTransaction(SPISettings(80000000, MSBFIRST, SPI_MODE0));
+/*
+    vspi->beginTransaction(SPISettings(100000000, MSBFIRST, SPI_MODE0));  //12ns pulses, too fast a clock setting
+    vspi->transfer(0b10101010);
+    vspi->endTransaction();
+*/
+    /*
+    for(i=80000000; i > 100000; i=i-100000)
+    {
+      vspi->beginTransaction(SPISettings(i, MSBFIRST, SPI_MODE0));   
+      vspi->transfer(0b00000001);
+      vspi->endTransaction();
+        
+    }
+    */
+    
+    /*
+    vspi->beginTransaction(SPISettings(80000000, MSBFIRST, SPI_MODE0));   //12ns pulses, 10ns pulses, fastest pulse setting?
     vspi->transfer(0b10101010);
     vspi->endTransaction();
     
-    vspi->beginTransaction(SPISettings(70000000, MSBFIRST, SPI_MODE0));
+    vspi->beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));   //98ns pulses, 100ns pulses
+    vspi->transfer(0b10101010);
+    vspi->endTransaction();
+
+    vspi->beginTransaction(SPISettings(5000000, MSBFIRST, SPI_MODE0));   //198ns pulses
     vspi->transfer(0b10101010);
     vspi->endTransaction();
     
-    vspi->beginTransaction(SPISettings(60000000, MSBFIRST, SPI_MODE0));
+    vspi->beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));    //1us pulses
     vspi->transfer(0b10101010);
     vspi->endTransaction();
-    
-    vspi->beginTransaction(SPISettings(50000000, MSBFIRST, SPI_MODE0));
+
+    vspi->beginTransaction(SPISettings(100000, MSBFIRST, SPI_MODE0));    //10us pulses
     vspi->transfer(0b10101010);
     vspi->endTransaction();
-    
-    vspi->beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
+    */
+
+/*
+    vspi->beginTransaction(SPISettings(10000, MSBFIRST, SPI_MODE0));    //12.8us pulses (too slow a clock setting)
     vspi->transfer(0b10101010);
     vspi->endTransaction();
-    
-    vspi->beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));
-    vspi->transfer(0b10101010);
-    vspi->endTransaction();
-    
-  
+*/ 
     
   }
 

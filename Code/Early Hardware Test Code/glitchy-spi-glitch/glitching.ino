@@ -26,165 +26,52 @@ Special thanks goes to Rui Santos and the RandomNerdTutorials site. The work her
 //Tell the compiler to not optimize so hopefully the timing doesn't get delayed. 
 //#pragma GCC push_options
 //#pragma GCC optimize("Ofast")
-void execute_test_glitch(uint32_t shortest_delay_nops, uint32_t longest_delay_nops, uint32_t pause_time_between_glitching_ms, uint32_t glitch_time_step_size, uint32_t num_of_attempts_at_each_step)
+void execute_test_glitch(uint32_t shortest_delay_ns, uint32_t longest_delay_ns, uint32_t pause_time_between_glitching_ms, uint32_t glitch_time_step_size_ns, uint32_t num_of_attempts_at_each_step)
 {
   int i=0;
-  uint32_t glitch_time_nops = shortest_delay_nops;
+  uint32_t current_glitch_time_ns = shortest_delay_ns;
 
-  while((glitch_time_nops < longest_delay_nops) && (digitalRead(GLITCH_SUCCESS_PIN) == false))
+  while((current_glitch_time_ns < longest_delay_ns) && (digitalRead(GLITCH_SUCCESS_PIN) == false))
   {
     for(int j=0; j< num_of_attempts_at_each_step; j++)
     {
-      delay(1);
       digitalWrite(ENTER_KEY_PIN,HIGH);
       
-      execute_fast_test_glitch(glitch_time_nops);
-      /*
-      REG_SET_BIT(GPIO_OUT_REG,BIT15);
-  
-      for(i=0; i<glitch_time_nops; i++)
-      {
-        asm ( "nop \n" );
-      }
-  
-     
-      REG_CLR_BIT(GPIO_OUT_REG,BIT15);
-      */
+      execute_spi_driven_glitch(current_glitch_time_ns);
   
       digitalWrite(ENTER_KEY_PIN,LOW);
-      delay(1);
       
       delay(pause_time_between_glitching_ms);
       
-      Serial.println(glitch_time_nops);
+      Serial.print(current_glitch_time_ns);
+      Serial.println("us");
       
-      //(bool running, unsigned int delay_value, unsigned int try_number, bool success)
-      //udpate_glitch_status_webpage(true,glitch_time_nops, j, false);
+      //bool running, unsigned int delay_value_ns, unsigned int try_number, bool success)
+      udpate_glitch_status_webpage(true,current_glitch_time_ns, j, false);
     }
-    glitch_time_nops = glitch_time_nops + glitch_time_step_size;
+    current_glitch_time_ns = current_glitch_time_ns + glitch_time_step_size_ns;
   }
 
   if(digitalRead(GLITCH_SUCCESS_PIN) == true)
   {
     Serial.println("SUCCESS! It worked!");
-    udpate_glitch_status_webpage(false,glitch_time_nops, 0, true);
+    udpate_glitch_status_webpage(false,current_glitch_time_ns, 0, true);
   }
   else
   {
-    udpate_glitch_status_webpage(false,glitch_time_nops, 0, false);
+    udpate_glitch_status_webpage(false,current_glitch_time_ns, 0, false);
+    Serial.println("No Luck :( Try Again");
   }
 }
 
-//IRAM_ATTR
-static inline void execute_fast_test_glitch(uint32_t numofnops)
+
+//Shortest time about 18ns, longest time about 10000ns
+void execute_spi_driven_glitch(unsigned long time_ns)
 {
+  unsigned long drive_frequency = 1/(0.000000001 * time_ns);
 
-  //unsigned int i=0;
-    /*
-    switch(numofnops){
-      case 0:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-
-      case 1:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        __asm__ __volatile__ ("nop;");
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-
-      case 2:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        __asm__ __volatile__("nop;nop;");
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-
-      case 3:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        __asm__ __volatile__("nop;nop;nop;");
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-
-      case 4:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        __asm__ __volatile__("nop;nop;nop;nop;");
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-
-      case 5:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        __asm__ __volatile__("nop;nop;nop;nop;nop;");
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-
-      case 6:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        __asm__ __volatile__("nop;nop;nop;nop;nop;nop;");
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-
-      case 7:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        __asm__ __volatile__("nop;nop;nop;nop;nop;nop;nop;");
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-
-      case 8:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        __asm__ __volatile__("nop;nop;nop;nop;nop;nop;nop;nop;");
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-
-      case 9:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        __asm__ __volatile__("nop;nop;nop;nop;nop;nop;nop;nop;");
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-
-      case 10:
-        GPIO.out_w1ts = (1 << GPIO_NUM_15);
-        __asm__ __volatile__("nop;nop;nop;nop;nop;nop;nop;nop;nop;");
-        GPIO.out_w1tc = (1 << GPIO_NUM_15);
-      break;
-    
-
-      
-    }
-    */
-
-
-    
-    GPIO.out_w1ts = (1 << GPIO_NUM_15);
-
-    for(i=0; i<numofnops; i++)
-      {
-        __asm__ __volatile__ ("nop");
-      }
-      
-    
-    GPIO.out_w1tc = (1 << GPIO_NUM_15);
-    
-    
-    
-    
-    //__asm__ __volatile__("nop;nop;nop;nop;nop;nop;nop;");
-    //__asm__ __volatile__("nop;nop;nop;nop;nop;nop;nop;"); // Bug workaround (I found this snippet somewhere in this forum)
-
-    /*  
-    REG_SET_BIT(GPIO_OUT_REG,BIT15);
-    //__asm__ __volatile__ ("nop");
-    //__asm__ __volatile__ ("nop");
-    //__asm__ __volatile__ ("nop");
-    //__asm__ __volatile__ ("nop");
-    for(i=0; i<numofnops; i++)
-      {
-        __asm__ __volatile__ ("nop");
-      }
-      
-    REG_CLR_BIT(GPIO_OUT_REG,BIT15);
-    */
-
-
+  vspi->beginTransaction(SPISettings(drive_frequency, MSBFIRST, SPI_MODE0));   
+  vspi->transfer(0b00000001);
+  vspi->endTransaction();
 
 }
-//#pragma GCC pop_options

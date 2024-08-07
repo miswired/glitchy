@@ -80,10 +80,14 @@
 				console.log("PacketType is UpdateGlitchStatus");
 				
 				let current_status = ""
-				if(myObj.running == true){
-					current_status = "Running" + ":" + " Current Delay:" + myObj.delay_value + " Try Number:" + myObj.try_number;
+				if(myObj.success == false){
+					if(myObj.running == true){
+						current_status = "Running" + ":" + " Current Delay:" + myObj.delay_value + "ns " + " Try Number:" + myObj.try_number;
+					}else{
+						current_status = "Stopped";
+					}
 				}else{
-					current_status = "Stopped";
+					current_status = "SUCCESS!!! " + "Last Run: " + "Delay:" + myObj.delay_value + "ns " + " Try Number:" + myObj.try_number;
 				}
 				console.log(current_status);
 				document.getElementById("glitching_status").innerText = current_status;
