@@ -1,7 +1,6 @@
-
-
 /*
-This project is a proof of concept for generating glitch pulses when triggered from a web page. This is unpolished messy code.
+Glitchy
+An introduction to hardware exploitation.
 
 This file is licensed under the Creative Commons Attribution-Share Alike 3.0 Unported license.
 https://creativecommons.org/licenses/by-sa/3.0/deed.en
