@@ -187,7 +187,7 @@ void IRAM_ATTR Timer0_ISR()
 
 //Start system initiation
 void setup(){
-  delay(100); //Allow a little time for power to stabalize
+  delay(500); //Allow a little time for power to stabalize
   // Serial port for debugging purposes
   Serial.begin(115200);
 
