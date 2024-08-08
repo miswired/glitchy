@@ -17,9 +17,6 @@ Please visit https://randomnerdtutorials.com/
         share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original. https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses
 */
 
-//I was checking if this would remove code optimizations and if it changed performance  
-//#pragma GCC optimize ("-O0")
-//#pragma GCC push_options
 
 #include <WiFi.h>
 #include <AsyncTCP.h>
@@ -28,25 +25,15 @@ Please visit https://randomnerdtutorials.com/
 #include "SD.h"
 #include "SPI.h"
 #include "wifi_credentials.h"
-//#include <Arduino_JSON.h>
 #include <ArduinoJson.h>
-//#include "CircularBuffer.hpp"
 
 
+//COMMENT OUT THE FOLLOWING TO CONNECT TO WIRELESS NETWORK INSTEAD OF HOSTING ONE
+#define HOST_ACCESS_POINT
+//NOTE: Put your wifi info in wifi_credentials.h if not hosting
 
-//NOTE: Put your wifi info in wifi_credentials.h
-
-//Pin Definitions
-#define LED_PIN             5
+//General system pins
 #define POWER_GLITCH_PIN    15
-#define ENTER_KEY_PIN       11
-#define GLITCH_SUCCESS_PIN  12
-
-//#define SCK_PIN             39
-//#define MISO_PIN            47
-//#define MOSI_PIN            40
-//#define CS_PIN              41
-
 #define AMP_IN_PIN          4
 #define BIAS_IN_PIN         2
 
@@ -55,6 +42,9 @@ Please visit https://randomnerdtutorials.com/
 #define KEY_2_PIN           6
 #define KEY_3_PIN           7
 
+// Pins for the glitching example
+#define ENTER_KEY_PIN       11
+#define GLITCH_SUCCESS_PIN  12
 
 //Set up both SPI's
 
@@ -88,36 +78,21 @@ AsyncWebSocket ws("/ws");
 
 // Globals
 
-
 String g_test_ssid;
-char ssid_char[30];
-
-#define CAL_ARRAY_LENGTH 100
-unsigned int cal_array[CAL_ARRAY_LENGTH];
-
 unsigned int g_chart_update_rate_ms = 100;
 unsigned int g_timer_send_chart_data_ms = 0;
-unsigned long g_last_milis_reading = 0;
-
-#define BUFFER_SIZE   100
-//CircularBuffer<unsigned int, BUFFER_SIZE> adc_amp_in_buffer;
-//CircularBuffer<unsigned int, BUFFER_SIZE> adc_bias_buffer;
-
-bool g_inturupt_called = false;
 bool g_glitching_acivate = false;
+bool g_enable_amp_bias_streaming = true;
 
 hw_timer_t *Timer0_Cfg = NULL;
 
-bool g_enable_amp_bias_streaming = true;
 
-uint8_t i=0;
 
 // Initialize SD Card
 void initSDCard(){
   uint64_t card_size = 0;
   uint8_t card_type = 0;
 
-  //SPI.begin(SCK_PIN, MISO_PIN, MOSI_PIN, CS_PIN);
   if(!SD.begin(hspi->pinSS(), *hspi)){
     Serial.println("SD Card Init Error");
     return;
@@ -157,9 +132,20 @@ void initSDCard(){
 
 // Start the wifi module and connect to the configured AP
 // Make sure to set up credentials in the wifi_credentials.h file
+// If you are connecting to an access point instead of hosting one
 void initWiFi() {
   Serial.println("Seting up Wifi");
+
+  //Might be good to make unique SSID names automatically, future update.
   /*
+  uint8_t mac[8];
+  esp_efuse_mac_get_default(mac);
+  Serial.print("Mac: ");
+  Serial.println("Seting up Wifi");
+  */
+
+  #ifndef HOST_ACCESS_POINT
+
   Serial.println("SSID Begin");
   WiFi.begin(ssid, password);
   Serial.print("Connecting to WiFi ..");
@@ -171,11 +157,14 @@ void initWiFi() {
 
   WiFi.softAP(ssid, password);
   WiFi.mode(WIFI_STA);
-  */
 
-  //ESP32 as AP
+  #else
+
+  //Set SSID and Password here if hosting access point
   const char* ap_ssid     = "ESP32-Access-Point";
   const char* ap_password = "123456789";
+
+  
 
   WiFi.softAP(ap_ssid, ap_password);
 
@@ -185,6 +174,7 @@ void initWiFi() {
   Serial.println(IP);
   
   server.begin();
+  #endif
   
 }
 
@@ -200,14 +190,7 @@ void setup(){
   // Serial port for debugging purposes
   Serial.begin(115200);
 
-  pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, LOW);
-
-  pinMode(POWER_GLITCH_PIN, OUTPUT);
-  digitalWrite(POWER_GLITCH_PIN, LOW);
-
   pinMode(GLITCH_SUCCESS_PIN, INPUT);
-
   pinMode(ENTER_KEY_PIN, OUTPUT);
   digitalWrite(ENTER_KEY_PIN, LOW);
 
@@ -273,71 +256,18 @@ void process_timers()
 void loop() {
   ws.cleanupClients();
 
-  unsigned long i=0;
-
   if(g_glitching_acivate == true){
     g_glitching_acivate = false;
 
-    execute_spi_driven_glitch(500);
-    
-    execute_test_glitch(200,1500,2000,10,3);
+    //Edit the below to change the glitching parameters that will run
     //shortest_delay_ns, longest_delay_ns, pause_time_between_glitching_ms, glitch_time_step_size_ns, num_of_attempts_at_each_step
-
-    
-
-    //execute_fast_test_glitch(i);
-
-    //execute_fast_test_glitch(2);
-
-/*
-    vspi->beginTransaction(SPISettings(100000000, MSBFIRST, SPI_MODE0));  //12ns pulses, too fast a clock setting
-    vspi->transfer(0b10101010);
-    vspi->endTransaction();
-*/
-    /*
-    for(i=80000000; i > 100000; i=i-100000)
-    {
-      vspi->beginTransaction(SPISettings(i, MSBFIRST, SPI_MODE0));   
-      vspi->transfer(0b00000001);
-      vspi->endTransaction();
-        
-    }
-    */
-    
-    /*
-    vspi->beginTransaction(SPISettings(80000000, MSBFIRST, SPI_MODE0));   //12ns pulses, 10ns pulses, fastest pulse setting?
-    vspi->transfer(0b10101010);
-    vspi->endTransaction();
-    
-    vspi->beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));   //98ns pulses, 100ns pulses
-    vspi->transfer(0b10101010);
-    vspi->endTransaction();
-
-    vspi->beginTransaction(SPISettings(5000000, MSBFIRST, SPI_MODE0));   //198ns pulses
-    vspi->transfer(0b10101010);
-    vspi->endTransaction();
-    
-    vspi->beginTransaction(SPISettings(1000000, MSBFIRST, SPI_MODE0));    //1us pulses
-    vspi->transfer(0b10101010);
-    vspi->endTransaction();
-
-    vspi->beginTransaction(SPISettings(100000, MSBFIRST, SPI_MODE0));    //10us pulses
-    vspi->transfer(0b10101010);
-    vspi->endTransaction();
-    */
-
-/*
-    vspi->beginTransaction(SPISettings(10000, MSBFIRST, SPI_MODE0));    //12.8us pulses (too slow a clock setting)
-    vspi->transfer(0b10101010);
-    vspi->endTransaction();
-*/ 
+    execute_test_glitch(200,1500,2000,10,3);
     
   }
 
   if(g_timer_send_chart_data_ms == 0 && g_enable_amp_bias_streaming == true)
   {
     g_timer_send_chart_data_ms = g_chart_update_rate_ms;
-    //Serial.println("Sending ADC");
     read_and_send_ADC();
   }
 }

@@ -48,24 +48,7 @@ void read_and_send_ADC()
   //JsonArray chartarray_jsonarray = doc["chartarray"].to<JsonArray>();
 
   //adc_amp_in_buffer.push(analogRead(AMP_IN_PIN));
-  /*
-  //Quick dirty way to fill the array, will be a rolling history eventually
-  for(int i=0; i<CAL_ARRAY_LENGTH; i++)
-  {
-    cal_array[i]=analogRead(AMP_IN_PIN);
-  }
   
-  for(int i=0; i<CAL_ARRAY_LENGTH; i++)
-  {
-    chartarray_jsonarray.add(cal_array[i]);
-  }
-  */
-  /*
-  for(int i=0; i<adc_amp_in_buffer.size(); i++)
-  {
-    chartarray_jsonarray.add(convert_dac_to_volts(adc_amp_in_buffer[i]));
-  }
-  */
   doc.shrinkToFit();  // optional
   
   String jsonString;

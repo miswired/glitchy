@@ -20,14 +20,6 @@ Special thanks goes to Rui Santos and the RandomNerdTutorials site. The work her
 */
 
 
-//Calling this will send a message to all the currently subscribed web clients via websockets
-//Right now it's just a simple string about the state of the glitching
-/*
-void notifyClients() {
-  ws.textAll(String(g_trigger_state));
-}
-*/
-
 //If the clients initiate a web socket message, parse it here, look for the toggle button, and 
 //toggle the trigger event. Then send a response to all the clients that it's been initiated.
 void handleWebSocketMessage(void *arg, uint8_t *data, size_t len) {
@@ -80,9 +72,9 @@ void initWebSocket() {
   server.addHandler(&ws);
 }
 
-// Sort through strings looking for "STATE" and replace it with ON or OFF depending on 
-// current trigger state. This is needed for first time page loads so the initial static page has
-// the right state reflected.
+//This is a pre-processor that will look for vairables to replace
+//On the first load of the page. Moved away from this to using JS
+//On the page end and websockets instead.
 String processor(const String& var){
   /*
   Serial.println(var);
