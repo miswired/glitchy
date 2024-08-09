@@ -8,6 +8,7 @@
     websocket.onopen    = onOpen;
     websocket.onclose   = onClose;
     websocket.onmessage = onMessage; 
+	console.log('Done with initWebsocket');
   }
   
   function onOpen(event) {
@@ -21,8 +22,12 @@
   
   
   function onLoad(event) {
+	console.log('onLoad called');
+	ChartAmpOut.data.datasets[0].data = [];
+	ChartBiasOut.data.datasets[0].data = [];
     initWebSocket();
     initButton();
+	console.log('onLoad Done');
   }
   function initButton() {
     document.getElementById('start_glitching_button').addEventListener('click', start_glitching);
