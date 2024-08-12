@@ -54,7 +54,7 @@ html {
    /*.button:hover {background-color: #0f8b8d}*/
    .button:active {
      background-color: #0f8b8d;
-     box-shadow: 2 2px #CDCDCD;
+     box-shadow: 2px 2px 12px 1px #CDCDCD;
      transform: translateY(2px);
    }
    .state {
