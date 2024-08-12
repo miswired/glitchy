@@ -63,7 +63,7 @@ Please visit https://randomnerdtutorials.com/
 #define VSPI FSPI
 #endif
 
-static const int spiClk = 1000000; // 1 MHz
+//static const int spiClk = 1000000; // 1 MHz
 
 //uninitalised pointers to SPI objects
 SPIClass * vspi = NULL;
@@ -93,7 +93,7 @@ void initSDCard(){
   uint64_t card_size = 0;
   uint8_t card_type = 0;
 
-  if(!SD.begin(hspi->pinSS(), *hspi, 8000000)){
+  if(!SD.begin(hspi->pinSS(), *hspi, 1000000)){
     Serial.println("SD Card Init Error");
     return;
   }
@@ -161,7 +161,7 @@ void initWiFi() {
   #else
 
   //Set SSID and Password here if hosting access point
-  const char* ap_ssid     = "ESP32-Access-Point";
+  const char* ap_ssid     = "ESP32-Glitch";
   const char* ap_password = "123456789";
 
   
@@ -262,7 +262,7 @@ void loop() {
 
     //Edit the below to change the glitching parameters that will run
     //shortest_delay_ns, longest_delay_ns, pause_time_between_glitching_ms, glitch_time_step_size_ns, num_of_attempts_at_each_step
-    execute_test_glitch(200,1500,2000,10,3);
+    execute_test_glitch(500,1500,2000,10,3);
     
   }
 
