@@ -4,6 +4,10 @@
 Designed as an introduction into hardware hacking, the Glitchy can do power glitching to alter program execution and power analysis for extracting secrets from chips. 
 See the [wiki](https://github.com/miswired/glitchy/wiki) for setup instructions and guides to performing the labs with the kit.
 
+## Comming Features
+* Completely new web GUI
+* Adjustability of glitching parameters from web interface
+
 ## Release Notes
 ### 1.1.0
 #### New Features
