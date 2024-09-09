@@ -13,6 +13,7 @@
   
   function onOpen(event) {
     console.log('Connection opened');
+	get_glitch_param();
   }
   
   function onClose(event) {
@@ -23,8 +24,8 @@
   
   function onLoad(event) {
 	console.log('onLoad called');
-	ChartAmpOut.data.datasets[0].data = [];
-	ChartBiasOut.data.datasets[0].data = [];
+	//ChartAmpOut.data.datasets[0].data = [];
+	//ChartBiasOut.data.datasets[0].data = [];
     initWebSocket();
     initButton();
 	console.log('onLoad Done');
@@ -98,9 +99,26 @@
 				document.getElementById("glitching_status").innerText = current_status;
 				
 			}
-			
-			
-		  }			  
+			if(myObj.PacketType == "glitch_param"){
+				console.log("PacketType is glitch_param");
+
+				console.log(myObj.CommsVersion);
+				console.log(myObj.PacketType);
+				console.log(myObj.start_time_ns);
+				console.log(myObj.stop_time_ns);
+				console.log(myObj.delay_between_glitches_ms);
+				console.log(myObj.step_size_ns);
+				console.log(myObj.retry_times);
+
+				document.getElementById("start_time_ns_input").value = myObj.start_time_ns;
+				document.getElementById("stop_time_ns_input").value = myObj.stop_time_ns;
+				document.getElementById("delay_between_glitches_ms_input").value = myObj.delay_between_glitches_ms;
+				document.getElementById("step_size_ns_input").value = myObj.step_size_ns;
+				document.getElementById("retry_times_input").value = myObj.retry_times;
+
+
+			}
+		  }
 		}
 	  }
 	}
@@ -148,22 +166,86 @@
 	  if(checkBox.checked == true)
 	  {
 		  console.log("checked");
-		  websocket.send('enable_adc_stream');
+		  //websocket.send('enable_adc_stream');
+		  var obj = new Object();
+		  obj.CommsVersion = 1.1;
+		  obj.PacketType = "enable_adc_stream";
+		  var jsonString= JSON.stringify(obj);
+		  websocket.send(jsonString);
 	  }
 	  else
 	  {
 		  console.log("unchecked");
-		  websocket.send('disable_adc_stream');
+		  //websocket.send('disable_adc_stream');
+		  var obj = new Object();
+		  obj.CommsVersion = 1.1;
+		  obj.PacketType = "disable_adc_stream";
+		  var jsonString= JSON.stringify(obj);
+		  websocket.send(jsonString);
 	  }
 	  
   }
+
+  function get_glitch_param(){
+	  console.log("get_glitch_param called");
+	  var obj = new Object();
+	  obj.CommsVersion = 1.1;
+	  obj.PacketType = "get_glitch_param";
+	  var jsonString= JSON.stringify(obj);
+	  websocket.send(jsonString);
+  }
+
+  function send_glitch_param(){
+	console.log("send_glitch_param called");
+	var obj = new Object();
+	obj.CommsVersion = 1.1;
+	obj.PacketType = "set_glitch_param";
+	obj.start_time_ns = parseInt(document.getElementById("start_time_ns_input").value);
+	obj.stop_time_ns = parseInt(document.getElementById("stop_time_ns_input").value);
+	obj.delay_between_glitches_ms = parseInt(document.getElementById("delay_between_glitches_ms_input").value);
+	obj.step_size_ns = parseInt(document.getElementById("step_size_ns_input").value );
+	obj.retry_times = parseInt(document.getElementById("retry_times_input").value);
+
+
+	var jsonString= JSON.stringify(obj);
+	websocket.send(jsonString);
+
+
+  }
+
+  function test_json_packet(){
+	  console.log("test_json_packet called");
+	  var obj = new Object();
+	  obj.CommsVersion = 1.1;
+	  obj.PacketType = "testpacket";
+	  obj.somevalue  = 32;
+	  obj.somebool = false;
+	  var jsonString= JSON.stringify(obj);
+	  websocket.send(jsonString);
+  }
+
   
   function start_power_analysis(){
-    websocket.send('start_power_analysis');
+    //websocket.send('start_power_analysis');
+	var obj = new Object();
+	obj.CommsVersion = 1.1;
+	obj.PacketType = "start_power_analysis";
+	var jsonString= JSON.stringify(obj);
+	websocket.send(jsonString);
   }
 
   function start_glitching(){
-    websocket.send('start_glitching');
+    //websocket.send('start_glitching');
+	//Send the latest parameters
+	console.log("Sending current parameters first");
+	send_glitch_param();
+	//Send the message to start glitching.
+	//Maybe I should also run a get and verify the paremeters were set?
+	var obj = new Object();
+	obj.CommsVersion = 1.1;
+	obj.PacketType = "start_glitching";
+	var jsonString= JSON.stringify(obj);
+	websocket.send(jsonString);
   }
   
   function test_state_text(){

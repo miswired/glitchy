@@ -34,9 +34,21 @@
    <div id="tab2Content">
 	   <div class="content">
 			<div class="card">
+				<h2>Glitching Parameters</h2>
+				<label id="fname">Starting glitch length [ns]</label>
+				<input type="text" id="start_time_ns_input" value="loading..."><br><br>
+				<label id="lname">Ending glitch length [ns]</label>
+				<input type="text" id="stop_time_ns_input" value="loading..."><br><br>
+				<label id="lname">Step size each increase [ns]</label>
+				<input type="text" id="step_size_ns_input" value="loading..."><br><br>
+				<label id="lname">Delay between glitches [ms]</label>
+				<input type="text" id="delay_between_glitches_ms_input" value="loading..."><br><br>
+				<label id="lname">How many times to try each glitch</label>
+				<input type="text" id="retry_times_input" value="loading..."><br><br>
+
 				<h2>Glitching State</h2>
 
-				<p class="state">state: <span id="glitching_status">%STATE%</span></p>
+				<p class="state">state: <span id="glitching_status">Standby</span></p>
 				<p><button id="start_glitching_button" class="button">Start Glitching Test</button></p>
 				
 			</div>
@@ -86,7 +98,6 @@
 	Chart.register(ChartStreaming);
   </script>
   
-  <script src="charts.js"></script>
   <script src="script.js"></script>
 
   

@@ -26,14 +26,40 @@ Special thanks goes to Rui Santos and the RandomNerdTutorials site. The work her
 //Tell the compiler to not optimize so hopefully the timing doesn't get delayed. 
 //#pragma GCC push_options
 //#pragma GCC optimize("Ofast")
-void execute_test_glitch(uint32_t shortest_delay_ns, uint32_t longest_delay_ns, uint32_t pause_time_between_glitching_ms, uint32_t glitch_time_step_size_ns, uint32_t num_of_attempts_at_each_step)
+
+typedef struct {
+  uint32_t shortest_delay_ns;
+  uint32_t longest_delay_ns;
+  uint32_t pause_time_between_glitching_ms;
+  uint32_t glitch_time_step_size_ns;
+  uint32_t num_of_attempts_at_each_step;
+} glitch_param_t;
+
+glitch_param_t g_glitch_param;
+
+#define SHORTEST_DELAY_NS_DEFAULT               200
+#define LONGEST_DELAY_NS_DEFAULT                1500
+#define PAUSE_TIME_BETWEEN_GLITCHING_MS_DEFAULT 2000
+#define GLITCH_TIME_STEP_SIZE_NS_DEFAULT        10
+#define NUM_OF_ATTEMPTS_AT_EACH_STEP_DEFAULT    3
+
+void init_glitch()
+{
+  g_glitch_param.shortest_delay_ns = SHORTEST_DELAY_NS_DEFAULT;
+  g_glitch_param.longest_delay_ns = LONGEST_DELAY_NS_DEFAULT;
+  g_glitch_param.pause_time_between_glitching_ms = PAUSE_TIME_BETWEEN_GLITCHING_MS_DEFAULT;
+  g_glitch_param.glitch_time_step_size_ns = GLITCH_TIME_STEP_SIZE_NS_DEFAULT;
+  g_glitch_param.num_of_attempts_at_each_step = NUM_OF_ATTEMPTS_AT_EACH_STEP_DEFAULT;
+}
+
+void execute_test_glitch()
 {
   int i=0;
-  uint32_t current_glitch_time_ns = shortest_delay_ns;
+  uint32_t current_glitch_time_ns = g_glitch_param.shortest_delay_ns;
 
-  while((current_glitch_time_ns < longest_delay_ns) && (digitalRead(GLITCH_SUCCESS_PIN) == false))
+  while((current_glitch_time_ns < g_glitch_param.longest_delay_ns) && (digitalRead(GLITCH_SUCCESS_PIN) == false))
   {
-    for(int j=0; j< num_of_attempts_at_each_step; j++)
+    for(int j=0; j< g_glitch_param.num_of_attempts_at_each_step; j++)
     {
       digitalWrite(ENTER_KEY_PIN,HIGH);
       
@@ -41,7 +67,7 @@ void execute_test_glitch(uint32_t shortest_delay_ns, uint32_t longest_delay_ns, 
   
       digitalWrite(ENTER_KEY_PIN,LOW);
       
-      delay(pause_time_between_glitching_ms);
+      delay(g_glitch_param.pause_time_between_glitching_ms);
       
       Serial.print(current_glitch_time_ns);
       Serial.println("us");
@@ -49,7 +75,7 @@ void execute_test_glitch(uint32_t shortest_delay_ns, uint32_t longest_delay_ns, 
       //bool running, unsigned int delay_value_ns, unsigned int try_number, bool success)
       udpate_glitch_status_webpage(true,current_glitch_time_ns, j, false);
     }
-    current_glitch_time_ns = current_glitch_time_ns + glitch_time_step_size_ns;
+    current_glitch_time_ns = current_glitch_time_ns + g_glitch_param.glitch_time_step_size_ns;
   }
 
   if(digitalRead(GLITCH_SUCCESS_PIN) == true)

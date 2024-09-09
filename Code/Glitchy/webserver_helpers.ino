@@ -26,6 +26,67 @@ void handleWebSocketMessage(void *arg, uint8_t *data, size_t len) {
   AwsFrameInfo *info = (AwsFrameInfo*)arg;
   if (info->final && info->index == 0 && info->len == len && info->opcode == WS_TEXT) {
     data[len] = 0;
+    Serial.println((char*)data);
+
+    JsonDocument doc;
+    
+    DeserializationError error = deserializeJson(doc, data, len);
+    
+    if (error) {
+      Serial.print("deserializeJson() failed: ");
+      Serial.println(error.c_str());
+      return;
+    }
+
+    if(doc["CommsVersion"] != NULL)
+    {
+      if(doc["CommsVersion"] == 1.1)
+      {
+        
+        if (doc["PacketType"] == "start_glitching") {
+          g_glitching_acivate = true;
+    
+        }
+        if (doc["PacketType"] == "start_power_analysis"){
+          Serial.println("Got start_power_analysis");
+          run_key_diff_analysis();
+        }
+        if (doc["PacketType"] == "enable_adc_stream"){
+          Serial.println("Got enable_adc_stream");
+          g_enable_amp_bias_streaming = true;
+    
+        }
+        if (doc["PacketType"] == "disable_adc_stream"){
+          Serial.println("Got disable_adc_streams");
+          g_enable_amp_bias_streaming = false;
+        }
+
+        if (doc["PacketType"] == "get_glitch_param"){
+          Serial.println("Got get_glitch_param");
+          g_send_glitch_params = true;
+        }
+
+        if (doc["PacketType"] == "set_glitch_param"){
+          Serial.println("Got set_glitch_param");
+          g_glitch_param.shortest_delay_ns = doc["start_time_ns"];
+          g_glitch_param.longest_delay_ns = doc["stop_time_ns"];
+          g_glitch_param.pause_time_between_glitching_ms = doc["delay_between_glitches_ms"];
+          g_glitch_param.glitch_time_step_size_ns = doc["step_size_ns"];
+          g_glitch_param.num_of_attempts_at_each_step = doc["retry_times"];
+        }
+
+        if(doc["PacketType"] == "testpacket")
+        {
+          Serial.println("Got test packet");
+          Serial.println((int)doc["somevalue"]);
+          Serial.println((bool)doc["somebool"]);
+        }
+      }
+    }
+
+    
+
+    /*
     if (strcmp((char*)data, "start_glitching") == 0) {
       g_glitching_acivate = true;
       
@@ -43,6 +104,7 @@ void handleWebSocketMessage(void *arg, uint8_t *data, size_t len) {
       Serial.println("Got disable_adc_streams");
       g_enable_amp_bias_streaming = false;
     }
+    */
   }
 }
 
@@ -100,6 +162,26 @@ void udpate_glitch_status_webpage(bool running, unsigned int delay_value_ns, uns
   doc["delay_value"] = delay_value_ns;
   doc["try_number"] = try_number;
   doc["success"] = success;
+  
+  doc.shrinkToFit();  // optional
+  
+  String jsonString;
+  serializeJson(doc, jsonString);
+  
+  ws.textAll(jsonString);
+
+}
+
+void send_glitch_params()
+{  
+  JsonDocument doc;
+  doc["CommsVersion"] = 1.1;
+  doc["PacketType"] = "glitch_param";
+  doc["start_time_ns"] = g_glitch_param.shortest_delay_ns;
+  doc["stop_time_ns"] = g_glitch_param.longest_delay_ns;
+  doc["delay_between_glitches_ms"] = g_glitch_param.pause_time_between_glitching_ms;
+  doc["step_size_ns"] = g_glitch_param.glitch_time_step_size_ns;
+  doc["retry_times"] = g_glitch_param.num_of_attempts_at_each_step;
   
   doc.shrinkToFit();  // optional
   

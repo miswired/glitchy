@@ -27,6 +27,9 @@ Please visit https://randomnerdtutorials.com/
 #include "wifi_credentials.h"
 #include <ArduinoJson.h>
 
+//WDT change timeouts in hope the web server stops haulting and tripping the WDT
+#define CONFIG_ESP_INT_WDT_TIMEOUT_MS   2000
+#define CONFIG_ESP_TASK_WDT_TIMEOUT_S   10
 
 //COMMENT OUT THE FOLLOWING TO CONNECT TO WIRELESS NETWORK INSTEAD OF HOSTING ONE
 #define HOST_ACCESS_POINT
@@ -83,6 +86,7 @@ unsigned int g_chart_update_rate_ms = 100;
 unsigned int g_timer_send_chart_data_ms = 0;
 bool g_glitching_acivate = false;
 bool g_enable_amp_bias_streaming = false;
+bool g_send_glitch_params = false;
 
 hw_timer_t *Timer0_Cfg = NULL;
 
@@ -93,7 +97,7 @@ void initSDCard(){
   uint64_t card_size = 0;
   uint8_t card_type = 0;
 
-  if(!SD.begin(hspi->pinSS(), *hspi, 1000000)){
+  if(!SD.begin(hspi->pinSS(), *hspi, 1000000,"/sd",20)){
     Serial.println("SD Card Init Error");
     return;
   }
@@ -217,6 +221,8 @@ void setup(){
   //Load config file
   //config_test();
 
+  init_glitch();
+
   initWiFi();
   
 
@@ -262,7 +268,7 @@ void loop() {
 
     //Edit the below to change the glitching parameters that will run
     //shortest_delay_ns, longest_delay_ns, pause_time_between_glitching_ms, glitch_time_step_size_ns, num_of_attempts_at_each_step
-    execute_test_glitch(500,1500,2000,10,3);
+    execute_test_glitch();
     
   }
 
@@ -270,5 +276,11 @@ void loop() {
   {
     g_timer_send_chart_data_ms = g_chart_update_rate_ms;
     read_and_send_ADC();
+  }
+
+  if(g_send_glitch_params == true)
+  {
+    g_send_glitch_params = false;
+    send_glitch_params();
   }
 }
