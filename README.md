@@ -35,3 +35,12 @@ https://github.com/pkopysci/miswired-glitchy-vue-app
 
 ## Project Setup
 Install Arduino IDE V1. Please see the following wiki for a setup guide. [Arduino-Setup](https://github.com/miswired/glitchy/wiki/Guide-%E2%80%90-Arduino-Setup)  
+
+## Colaborators
+**Miswired**  
+https://github.com/miswired  
+PCB Board and firmware  
+  
+**Philip J Kopyscinski**  
+https://github.com/pkopysci  
+Web GUI  
