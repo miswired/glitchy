@@ -5112,7 +5112,7 @@
 		(path "/78960c9b-68c1-4b77-b92d-83a27b60e5d7")
 		(sheetname "Root")
 		(sheetfile "CircuitBreakerREV1_1.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(fp_line
 			(start -1.5 0.66)
 			(end -1.5 -0.66)
@@ -5520,7 +5520,7 @@
 		(path "/1b17abcb-98ef-41e7-a1db-7c59eb77f34a")
 		(sheetname "Root")
 		(sheetfile "CircuitBreakerREV1_1.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(fp_line
 			(start -1.5 0.66)
 			(end -1.5 -0.66)
@@ -8789,7 +8789,7 @@
 		(path "/5a35f807-e532-43f4-b84e-fb138f59a5e1")
 		(sheetname "Root")
 		(sheetfile "CircuitBreakerREV1_1.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(fp_line
 			(start -1.5 0.66)
 			(end -1.5 -0.66)
@@ -11886,7 +11886,7 @@
 		(path "/d4dee444-8219-4403-8a27-d672700fe9da")
 		(sheetname "Root")
 		(sheetfile "CircuitBreakerREV1_1.kicad_sch")
-		(attr through_hole exclude_from_bom)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.12 1.15)
 			(end 5.7 1.15)
@@ -12686,7 +12686,7 @@
 		(path "/529e1505-0b80-492a-86ec-f9a2def695c7")
 		(sheetname "Root")
 		(sheetfile "CircuitBreakerREV1_1.kicad_sch")
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(fp_line
 			(start -1.5 0.66)
 			(end -1.5 -0.66)
