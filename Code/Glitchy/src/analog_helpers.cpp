@@ -1,4 +1,7 @@
 #include "analog.h"
+#include "pins.h"
+#include <ArduinoJson.h>
+#include "web_server.h"
 
 #define DAC_CAL_Y0      1.42
 #define DAC_CAL_X0      1665
