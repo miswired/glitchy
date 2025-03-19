@@ -19,29 +19,26 @@ Special thanks goes to Rui Santos and the RandomNerdTutorials site. The work her
         share alike – If you remix, transform, or build upon the material, you must distribute your contributions under the same or compatible license as the original. https://creativecommons.org/share-your-work/licensing-considerations/compatible-licenses
 */
 #include "driver/gpio.h"
+#include <Arduino.h>
+#include "pins.h"
+#include "global.h"
+#include "SPI.h"
+#include "glitching.h"
+#include "web_server.h"
 
-// This is a quick and dirty glitching sequence used for testing. It's using nop's for delays as the delay function has too much overhead for short delays.
-// The pulse width of the glitch is staticly set right now, this should be dynamic
 
-//Tell the compiler to not optimize so hopefully the timing doesn't get delayed. 
-//#pragma GCC push_options
-//#pragma GCC optimize("Ofast")
-
-typedef struct {
-  uint32_t shortest_delay_ns;
-  uint32_t longest_delay_ns;
-  uint32_t pause_time_between_glitching_ms;
-  uint32_t glitch_time_step_size_ns;
-  uint32_t num_of_attempts_at_each_step;
-} glitch_param_t;
-
-glitch_param_t g_glitch_param;
 
 #define SHORTEST_DELAY_NS_DEFAULT               200
 #define LONGEST_DELAY_NS_DEFAULT                1500
 #define PAUSE_TIME_BETWEEN_GLITCHING_MS_DEFAULT 2000
 #define GLITCH_TIME_STEP_SIZE_NS_DEFAULT        10
 #define NUM_OF_ATTEMPTS_AT_EACH_STEP_DEFAULT    3
+
+//The ESP32-S3 doesn't have an VSPI, they define FSPI instead
+
+SPIClass spi_fspi = SPIClass(FSPI);
+
+glitch_param_t g_glitch_param;
 
 void init_glitch()
 {
@@ -50,6 +47,16 @@ void init_glitch()
   g_glitch_param.pause_time_between_glitching_ms = PAUSE_TIME_BETWEEN_GLITCHING_MS_DEFAULT;
   g_glitch_param.glitch_time_step_size_ns = GLITCH_TIME_STEP_SIZE_NS_DEFAULT;
   g_glitch_param.num_of_attempts_at_each_step = NUM_OF_ATTEMPTS_AT_EACH_STEP_DEFAULT;
+
+
+  //Setup SPI module
+  spi_fspi.begin(FSPI_SCLK, FSPI_MISO, FSPI_MOSI, FSPI_SS);
+
+  spi_fspi.beginTransaction(SPISettings(80000000, MSBFIRST, SPI_MODE0));
+  // Setting this up now so that the line is drivien low quickly after startup
+  spi_fspi.transfer(0b00000000);
+  spi_fspi.endTransaction();
+
 }
 
 void execute_test_glitch()
@@ -96,8 +103,8 @@ void execute_spi_driven_glitch(unsigned long time_ns)
 {
   unsigned long drive_frequency = 1/(0.000000001 * time_ns);
 
-  vspi->beginTransaction(SPISettings(drive_frequency, MSBFIRST, SPI_MODE0));   
-  vspi->transfer(0b00000001);
-  vspi->endTransaction();
+  spi_fspi.beginTransaction(SPISettings(drive_frequency, MSBFIRST, SPI_MODE0));   
+  spi_fspi.transfer(0b00000001);
+  spi_fspi.endTransaction();
 
 }

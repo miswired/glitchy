@@ -1,7 +1,0 @@
-Notes for setting up arduino envoroment
-Install the latest Arduino V1 IDE, not the V2 IDE
-Sketch>Library Manager
-Install
-AsyncTCP by dvarrel (Version 1.1.4 used)
-ESPAsyncWebSrv by dvarrel (Version 1.2.7 used)
-Opps ESPAsyncWebSrv installed ESPAsyncTCP. I didn't need to isntall AsyncTCP separetly. 
