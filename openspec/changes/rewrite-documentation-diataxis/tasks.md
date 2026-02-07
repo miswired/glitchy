@@ -4,12 +4,12 @@
 
 **Purpose**: Verify technical accuracy of documentation already published on master branch before creating new content.
 
-- [ ] 0a.1 Create verification system infrastructure
+- [x] 0a.1 Create verification system infrastructure (COMPLETE - 2026-02-01)
   - [x] Create OpenSpec spec: `openspec/specs/documentation-verification/spec.md`
   - [x] Create `verifications/` directory in wiki
   - [x] Create `verifications/README.md` implementation guide
   - [x] Create `verifications/TEMPLATE.md`
-  - [ ] Update agent instructions (AGENTS.md or CLAUDE.md)
+  - [x] Update agent instructions (AGENTS.md or CLAUDE.md)
 - [x] 0a.2 Verify Tutorial-Getting-Started.md (COMPLETE - 2026-02-01)
   - [x] Extract and verify all technical claims (35/35 verified)
   - [x] Create `verifications/VERIFICATION-Tutorial-Getting-Started.md`
@@ -18,30 +18,37 @@
   - [x] Extract and verify all technical claims (40/40 verified)
   - [x] Create `verifications/VERIFICATION-Tutorial-First-Glitch.md`
   - [x] Update verification index
-- [ ] 0a.4 Verify HowTo-Setup-PlatformIO.md
-  - [ ] Extract and verify all technical claims
-  - [ ] Create `verifications/VERIFICATION-HowTo-Setup-PlatformIO.md`
-  - [ ] Update verification index
-- [ ] 0a.5 Verify HowTo-Flash-Firmware.md
-  - [ ] Extract and verify all technical claims
-  - [ ] Create `verifications/VERIFICATION-HowTo-Flash-Firmware.md`
-  - [ ] Update verification index
-- [ ] 0a.6 Verify HowTo-Configure-WiFi.md
-  - [ ] Extract and verify all technical claims
-  - [ ] Create `verifications/VERIFICATION-HowTo-Configure-WiFi.md`
-  - [ ] Update verification index
-- [ ] 0a.7 Verify HowTo-Update-WebGUI.md
-  - [ ] Extract and verify all technical claims
-  - [ ] Create `verifications/VERIFICATION-HowTo-Update-WebGUI.md`
-  - [ ] Update verification index
-- [ ] 0a.8 Verify HowTo-Setup-KiCad.md
-  - [ ] Extract and verify all technical claims
-  - [ ] Create `verifications/VERIFICATION-HowTo-Setup-KiCad.md`
-  - [ ] Update verification index
-- [ ] 0a.9 Verify HowTo-Troubleshoot.md
-  - [ ] Extract and verify all technical claims
-  - [ ] Create `verifications/VERIFICATION-HowTo-Troubleshoot.md`
-  - [ ] Update verification index
+- [x] 0a.4 Verify HowTo-Setup-PlatformIO.md (COMPLETE - 2026-02-02)
+  - [x] Extract and verify all technical claims (32/32 verified, 3 issues fixed)
+  - [x] Create `verifications/VERIFICATION-HowTo-Setup-PlatformIO.md`
+  - [x] Update verification index
+- [x] 0a.5 Verify HowTo-Flash-Firmware.md (COMPLETE - 2026-02-02)
+  - [x] Extract and verify all technical claims (25/25 verified, 3 issues fixed)
+  - [x] Create `verifications/VERIFICATION-HowTo-Flash-Firmware.md`
+  - [x] Update verification index
+- [x] 0a.6 Verify HowTo-Configure-WiFi.md (COMPLETE - 2026-02-02)
+  - [x] Extract and verify all technical claims (22/22 verified, 3 issues fixed)
+  - [x] Create `verifications/VERIFICATION-HowTo-Configure-WiFi.md`
+  - [x] Update verification index
+- [x] 0a.7 Verify HowTo-Update-WebGUI.md (COMPLETE - 2026-02-02)
+  - [x] Extract and verify all technical claims (28/28 verified, 4 issues fixed)
+  - [x] Create `verifications/VERIFICATION-HowTo-Update-WebGUI.md`
+  - [x] Update verification index
+- [x] 0a.8 Verify HowTo-Setup-KiCad.md (COMPLETE - 2026-02-02)
+  - [x] Extract and verify all technical claims (26/26 verified, 2 issues fixed)
+  - [x] Create `verifications/VERIFICATION-HowTo-Setup-KiCad.md`
+  - [x] Update verification index
+- [x] 0a.9 Verify HowTo-Troubleshoot.md (COMPLETE - 2026-02-02)
+  - [x] Extract and verify all technical claims (45/45 verified, 5 issues fixed)
+  - [x] Create `verifications/VERIFICATION-HowTo-Troubleshoot.md`
+  - [x] Update verification index
+- [x] 0a.10 Fix all identified issues (COMPLETE - 2026-02-02)
+  - [x] Fix 2 major path issues (WebGUI, KiCad)
+  - [x] Fix CH340 driver references (3 docs)
+  - [x] Fix deprecated PlatformIO commands (2 docs)
+  - [x] Fix WiFi startup time estimates (2 docs)
+  - [x] Fix firmware version references (2 docs)
+  - [x] Fix minor issues (AP password, SD card clarification, etc.)
 
 ## Phase 0b: Code Quality Improvements (Identified During Verification)
 
